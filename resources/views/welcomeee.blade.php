@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
-  <title>Ingresar</title>
+  <title>Signup</title>
 </head>
 <body>
 
@@ -38,11 +38,24 @@
 
 
 <div class="divBodySignup-Right">
-  <p id="registerTittle">Ingresar</p>
+  <p id="registerTittle">Registrate</p>
   <form action="/signup" method="POST">
 
 
-    
+    <div class="div2InputsContainer">
+
+      <div class="divInputPlusLabel">
+        <label for="">Nombre</label>
+        <input class="inputSignup" type="text" name="nombre" id="" placeholder="Tu nombre" required>
+      </div>
+
+
+      <div class="divInputPlusLabel">
+        <label for="">Apellido</label>
+        <input class="inputSignup" type="text" name="apellido" id="apellido" placeholder="Tu apellido" required>
+      </div>
+
+    </div>
 
     <div class="div2InputsContainer">
 
@@ -53,23 +66,57 @@
 
 
       <div class="divInputPlusLabel">
-        <label for="">Contraseña</label>
-        <input class="inputSignup" type="password" name="password" id="" placeholder="*****" required>
+        <label for="">DNI</label>
+        <input class="inputSignup" type="text" name="DNI" id="" placeholder="Tu DNI" required>
       </div>
     </div>
 
-    
+    <div class="div2InputsContainer">
 
-   
+      <div class="divInputPlusLabel">
+        <label for="">Contraseña</label>
+        <input class="inputSignup" type="password" name="password" id="" placeholder="Tu contraseña" required>
+      </div>
 
 
-    
+      <div class="divInputPlusLabel">
+        <label for="">Confirmar contraseña</label>
+        <input class="inputSignup" type="password" name="" id="" placeholder="Repite contraseña">
+      </div>
+
+    </div>
+
+    <div class="div2InputsContainer">
+
+     <div class="divInputPlusLabel">
+        <label for="">Domicilio</label>
+        <input class="inputSignup" type="password" name="" id="" placeholder="Ingrese su domicilio">
+      </div>
+
+      
+
+          <div class="divInputPlusLabel">
+            <label for="Fecha">Fecha de nacimiento</label>
+            <input type="date" id="date" name="fecha" value=""
+           >
+
+
+          </div>
+
+    </div>
+
+
+    <div class="div2InputsContainer" id="checkboxdiv">
+      <input type="checkbox" id="checkbox" required>
+      <p>Acepto terminos y condiciones</p>
+
+    </div>
 
     <button id="buttonRegister" type="submit">Crear cuenta</button>
 
     <div class="div2InputsContainer" id="alreadyRegistered">
-      ¿No tienes una cuenta?
-      <a href="/signin" id="Logueate"> Registrate</a>
+      ¿Ya tienes una cuenta?
+      <a href="/signin" id="Logueate"> Logueate</a>
 
     </div>
 

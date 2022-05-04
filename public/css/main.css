@@ -1,0 +1,248 @@
+/* HERE STARTS SIGNUP CSS */
+/* HERE STARTS SIGNUP CSS */
+/* HERE STARTS SIGNUP CSS */
+/* HERE STARTS SIGNUP CSS */
+/* HERE STARTS SIGNUP CSS */
+/* HERE STARTS SIGNUP CSS */
+
+
+body{
+background-color: #EEEEEE;
+}
+
+.headerSignupContainer{
+    height: 13vh;
+    background-color: #EEEEEE;
+    display: flex;
+justify-content: center;   
+}
+
+.headerSignupContainerInside{
+    height: 100%;
+    width: 100%;
+    background-color: #00ADB5;
+    display: flex;
+    /* padding-left: 4%;
+    padding-right: 4%; */
+}
+.headerSignupContainerInside-Left{
+
+    height: 100%;
+    width: 25%;
+    background-color: #00ADB5;
+    display: flex;
+    justify-content: center;
+}
+.headerSignupContainerInside-Left img{
+    margin-top: 2.5%;
+}
+
+.underheaderImg{
+    height: 30vh;
+    background: url(/img/header2.jpg) no-repeat center;
+    background-size: cover;
+    background-position: 4% 60%;
+}
+
+.underSignup{
+    margin-top: 3%;
+    height: 60vh;
+    background-color: #d8dee4;
+    display: flex;
+    justify-content: center;
+}
+.underSignup-inner{
+    height: 80%;
+    display: flex;
+    justify-content: ;
+
+}
+.underSignup-inner card{
+    width: 45%;
+}
+
+.signUpTittle{
+    margin-top: 1%;
+    margin-bottom: 2%;
+    font-family: 'Roboto';
+    
+    color: #393E46;
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    height: 15vh;
+
+}
+.divBodySignup{
+    width: 90%;
+    margin: auto;
+    margin-top: 2%;
+    display: flex;
+    justify-content: space-between;
+    height: 110vh;
+    
+}
+.divBodySignup-Left{
+   
+    width: 30%;
+    background: url(/img/SigninImage.jpg) no-repeat center;
+    background-size: cover;
+    background-position: 49% 75%;
+    height: 100%;
+    
+}
+.divBodySignin-Left{
+    
+    width: 30%;
+    background: url(/img/SigninImage.jpg) no-repeat center;
+    background-size: cover;
+    background-position: 2% 22% 30%;
+    height: 100%;
+    
+    
+}
+.divBodySignup-Right{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'Poppins';
+    font-weight: bold;
+    font-size: 0.8rem;
+    padding: 20% 8% 20%  8% ;
+    width: 70%;
+    background-color: #fff;
+    height: 100%;
+    
+}
+
+.divBodySignup-Right a{
+    color:#00ADB5;
+
+}
+.divBodySignup-Right a:hover{
+    color:black;
+    
+}
+.divBodySignup-Right select{
+    margin-bottom: 3%;
+    border:none;
+    border-radius: 4px;
+    width: 100%;
+    background-color: #EEEEEE;
+    padding: 1.5%;
+    font-weight: bold;
+
+}
+
+.divBodySignup-Right select:focus{
+    outline: none;
+
+}
+
+.divBodySignup-Right option{
+    border: none;
+
+}
+.divBodySignup-Right button{
+    width: 25%;
+    border: none;
+    border-radius: 5px;
+    background-color: #00ADB5;
+    color: #fff;
+    font-weight: bold;
+    box-shadow: 1px  1px 0px 0px #92969c;
+    padding: 1%;
+
+}
+.divBodySignup-Right-textTittle{
+    text-align: center;
+    font-family: 'Poppins';
+    font-weight: bold;
+    font-size: 1.5rem;
+    
+    
+}
+.divBodySignup-Right-textTittle a{
+  color: #00ADB5;
+    
+}
+.divBodySignup-Right-textTittle a:hover{
+    color: #393E46;
+      
+  }
+  
+
+.inputSignup{
+    
+    background-color: #EEEEEE;
+    width: 100%;
+    border-radius: 3px;
+    box-shadow: 0px 1px 0px 0px #00ADB5 ;
+    padding: 12px 22px;
+    border: none;
+    border-bottom: solid 2px #00ADB5;
+    border-right: solid 1px #00ADB5 ;
+}
+
+.div2InputsContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+#checkboxdiv{
+    
+    justify-content: start;
+    width: 100%;
+}
+#checkbox{
+    margin-top: 1%;
+    margin-right: 1.5%;
+}
+#alreadyRegistered{
+    margin-top: 5%;
+    justify-content: start;
+    
+}
+#Logueate{
+    margin-left: 1.5%;
+}
+
+#buttonRegister{
+    margin-top: 3%;
+}
+
+#registerTittle{
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-bottom: 8%;
+}
+.divInputPlusLabel{
+    margin-bottom: 4%;
+    width: 45%;
+}
+.divInputPlusLabel select{
+    margin-top: 0%;
+    padding: 5.4%;
+}
+.inputSignup:focus{
+    border-right: none ;
+    outline: none;
+    
+}
+
+#date{ 
+    background-color: #EEEEEE;
+    width: 100%;
+    border-radius: 3px;
+    box-shadow: 0px 1px 0px 0px #00ADB5 ;
+    padding: 12px 22px;
+    border: none;
+    border-bottom: solid 2px #00ADB5;
+    border-right: solid 1px #00ADB5 ;
+
+}
+#date:focus{ 
+    outline: none;
+}
