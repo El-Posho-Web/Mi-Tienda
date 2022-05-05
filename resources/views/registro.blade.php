@@ -4,14 +4,13 @@
 <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/main.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/main.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
-  <title>Signup</title>
+  <title>Registrarse</title>
 </head>
 <body>
 
@@ -39,35 +38,44 @@
 
 <div class="divBodySignup-Right">
   <p id="registerTittle">Registrate</p>
-  <form action="/signup" method="POST">
 
-
+  <form method="POST" action="/mi-tienda/registro">
+    @csrf
     <div class="div2InputsContainer">
-
       <div class="divInputPlusLabel">
         <label for="">Nombre</label>
-        <input class="inputSignup" type="text" name="nombre" id="" placeholder="Tu nombre" required>
+        <input class="inputSignup" type="text" name="nombre" id="nombre" placeholder="Tu nombre" value="{{ old('nombre') }}" required>
+        @error('nombre')
+            <p>{{ $message }}</p>
+        @enderror
       </div>
 
 
       <div class="divInputPlusLabel">
         <label for="">Apellido</label>
-        <input class="inputSignup" type="text" name="apellido" id="apellido" placeholder="Tu apellido" required>
+        <input class="inputSignup" type="text" name="apellido" id="apellido" placeholder="Tu apellido" value="{{ old('apellido') }}" required>
       </div>
-
+      @error('apellido')
+      <p>{{ $message }}</p>
+  @enderror
     </div>
 
     <div class="div2InputsContainer">
-
       <div class="divInputPlusLabel">
         <label for="">Correo Electronico</label>
-        <input class="inputSignup" type="text" name="email" id="" placeholder="Tu correo" required>
+        <input class="inputSignup" type="email" name="email" id="email" placeholder="Tu correo" value="{{ old('correo') }}" required>
+        @error('email')
+        <p>{{ $message }}</p>
+    @enderror
       </div>
 
 
       <div class="divInputPlusLabel">
         <label for="">DNI</label>
-        <input class="inputSignup" type="text" name="DNI" id="" placeholder="Tu DNI" required>
+        <input class="inputSignup" type="number" name="dni" id="dni" placeholder="Tu DNI" value="{{ old('dni') }}" required>
+        @error('dni')
+        <p>{{ $message }}</p>
+    @enderror
       </div>
     </div>
 
@@ -75,40 +83,20 @@
 
       <div class="divInputPlusLabel">
         <label for="">Contraseña</label>
-        <input class="inputSignup" type="password" name="password" id="" placeholder="Tu contraseña" required>
+        <input class="inputSignup" type="password" name="password" id="password" placeholder="Tu contraseña" required>
+        @error('password')
+        <p>{{ $message }}</p>
+    @enderror
       </div>
 
 
       <div class="divInputPlusLabel">
-        <label for="">Confirmar contraseña</label>
-        <input class="inputSignup" type="password" name="" id="" placeholder="Repite contraseña">
-      </div>
-
-    </div>
-
-    <div class="div2InputsContainer">
-
-     <div class="divInputPlusLabel">
         <label for="">Domicilio</label>
-        <input class="inputSignup" type="password" name="" id="" placeholder="Ingrese su domicilio">
+        <input class="inputSignup" type="text" name="domicilio" id="domicilio" placeholder="Tu domicilio" value="{{ old('domicilio') }}" required>
+        @error('domicilio')
+        <p>{{ $message }}</p>
+    @enderror
       </div>
-
-      
-
-          <div class="divInputPlusLabel">
-            <label for="Fecha">Fecha de nacimiento</label>
-            <input type="date" id="date" name="fecha" value=""
-           >
-
-
-          </div>
-
-    </div>
-
-
-    <div class="div2InputsContainer" id="checkboxdiv">
-      <input type="checkbox" id="checkbox" required>
-      <p>Acepto terminos y condiciones</p>
 
     </div>
 
@@ -116,7 +104,7 @@
 
     <div class="div2InputsContainer" id="alreadyRegistered">
       ¿Ya tienes una cuenta?
-      <a href="/login" id="Logueate"> Logueate</a>
+      <a href="/mi-tienda/login" id="Logueate"> Logueate</a>
 
     </div>
 
@@ -144,4 +132,6 @@
       </ul>
     </footer>
   </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </html>

@@ -11,8 +11,8 @@ background-color: #EEEEEE;
 }
 
 .headerSignupContainer{
-    height: 13vh;
-    background-color: #EEEEEE;
+    height: 10vh;
+    background-color: #00ADB5;
     display: flex;
 justify-content: center;   
 }
@@ -20,7 +20,6 @@ justify-content: center;
 .headerSignupContainerInside{
     height: 100%;
     width: 100%;
-    background-color: #00ADB5;
     display: flex;
     /* padding-left: 4%;
     padding-right: 4%; */
@@ -28,7 +27,7 @@ justify-content: center;
 .headerSignupContainerInside-Left{
 
     height: 100%;
-    width: 25%;
+    width: 15%;
     background-color: #00ADB5;
     display: flex;
     justify-content: center;
@@ -54,8 +53,6 @@ justify-content: center;
 .underSignup-inner{
     height: 80%;
     display: flex;
-    justify-content: ;
-
 }
 .underSignup-inner card{
     width: 45%;
@@ -245,4 +242,10 @@ justify-content: center;
 }
 #date:focus{ 
     outline: none;
+}
+
+.btn-outline-primary{
+    color: #EEEEEE;
+    border-color: #EEEEEE;
+    margin-right: 20px;
 }
