@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -18,11 +19,11 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'nombre' => 'admin',
-            'apellido' => 'admin',
-            'dni' => '123456789',
-            'domicilio' => 'Calle Falsa 123',
-            'email' => 'admin@ejemplo.com',
+            'nombre' => $this->faker->firstName('male'|'female'),
+            'apellido' => $this->faker->lastName(),
+            'dni' => $this->faker->unique()->numberBetween($min = 1000000, $max = 99999999),
+            'domicilio' => $this->faker->streetAddress(),
+            'email' => $this->faker->unique()->safeEmail(),
             'password' => '1234', // password
         ];
     }

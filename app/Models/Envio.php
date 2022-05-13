@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Envio extends Model
 {
     use HasFactory;
+
+
+    protected $primaryKey = 'id_envio';
 }

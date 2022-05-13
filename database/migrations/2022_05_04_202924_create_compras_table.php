@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('envios', function (Blueprint $table) {
-            $table->id('id_envio');
-            $table->foreignId('id_compra');
-            $table->foreignId('id_usuario');
-            $table->float('costo_envio');
+        Schema::create('compras', function (Blueprint $table) {
+            $table->id('id_compra');
+            $table->unsignedBigInteger('id_usuario');
+            $table->foreign('id_usuario')->references('id_usuario')->on('users');
+            $table->integer('cantidad');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('envios');
+        Schema::dropIfExists('compras');
     }
 };

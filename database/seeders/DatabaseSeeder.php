@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\User;
+use App\Models\Categoria;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,6 +16,32 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         \App\Models\User::factory()->create();
+        User::factory()->create([
+            'nombre' => 'admin',
+            'apellido' => 'admin',
+            'dni' => '12345678',
+            'domicilio' => 'asd',
+            'email' => 'admin@ejemplo.com',
+            'password' => '1234'
+        ]);
+
+        Categoria::factory()->create([
+            'nombre' => 'Alimentos'
+        ]);
+
+        Categoria::factory()->create([
+            'nombre' => 'Electro'
+        ]);
+
+        Categoria::factory()->create([
+            'nombre' => 'Muebles'
+        ]);
+
+        Categoria::factory()->create([
+            'nombre' => 'Herramientas'
+        ]);
+
+         \App\Models\User::factory(10)->create();
+         \App\Models\Producto::factory(10)->create();
     }
 }
