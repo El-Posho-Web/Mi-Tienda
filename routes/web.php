@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegistroController;
 use App\Http\Controllers\SesionController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +33,5 @@ Route::post('mi-tienda/logout', [SesionController::class, 'logout'])->middleware
 Route::get('mi-tienda/registro', [RegistroController::class, 'crear'])->middleware('guest');
 
 Route::post('mi-tienda/registro', [RegistroController::class, 'guardar'])->middleware('guest');
+
+Route::get('mi-tienda/admin', [AdminController::class, 'admin'])->middleware('isadmin');
