@@ -5,6 +5,7 @@ use App\Http\Controllers\RegistroController;
 use App\Http\Controllers\SesionController;
 use App\Models\Producto;
 use App\Models\Categoria;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,3 +47,9 @@ Route::post('mi-tienda/logout', [SesionController::class, 'logout'])->middleware
 Route::get('mi-tienda/registro', [RegistroController::class, 'crear'])->middleware('guest');
 
 Route::post('mi-tienda/registro', [RegistroController::class, 'guardar'])->middleware('guest');
+
+Route::get('mi-tienda/admin', [AdminController::class, 'admin'])->middleware('isadmin');
+
+Route::post('mi-tienda/admin/producto', [AdminController::class, 'producto']);
+
+Route::post('mi-tienda/admin/categoria', [AdminController::class, 'categoria']);
