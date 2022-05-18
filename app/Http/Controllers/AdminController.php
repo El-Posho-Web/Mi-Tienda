@@ -13,4 +13,12 @@ class AdminController extends Controller
 
         return view('admin');
     }
+
+    public function producto(){
+        dd(request()->all());
+    }
+
+    public function categoria(){
+        dd(request()->all());
+    }
 }

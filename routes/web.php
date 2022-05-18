@@ -35,3 +35,7 @@ Route::get('mi-tienda/registro', [RegistroController::class, 'crear'])->middlewa
 Route::post('mi-tienda/registro', [RegistroController::class, 'guardar'])->middleware('guest');
 
 Route::get('mi-tienda/admin', [AdminController::class, 'admin'])->middleware('isadmin');
+
+Route::post('mi-tienda/admin/producto', [AdminController::class, 'producto']);
+
+Route::post('mi-tienda/admin/categoria', [AdminController::class, 'categoria']);
