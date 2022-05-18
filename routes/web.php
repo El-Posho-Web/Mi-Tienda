@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegistroController;
 use App\Http\Controllers\SesionController;
+use App\Models\Producto;
+use App\Models\Categoria;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +22,19 @@ Route::get('/', function () {
 });
 
 Route::get('mi-tienda', function(){
-    return view('index');
+    return view('index', [
+        'productos' => Producto::with('categoria')->get(),
+        'usuario' => Auth::user(),
+        'categorias' => Categoria::all()
+    ]);
+});
+
+Route::get('mi-tienda/categoria/{categoria:nombre}', function(Categoria $categoria){
+    return view('index', [
+        'productos' => $categoria->productos, 
+        'usuario' => Auth::user(),
+        'categorias' => Categoria::all()
+    ]);
 });
 
 Route::get('mi-tienda/login', [SesionController::class, 'crear'])->middleware('guest');

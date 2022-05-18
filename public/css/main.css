@@ -10,6 +10,10 @@ body{
 background-color: #EEEEEE;
 }
 
+header{
+    background-color: #00ADB5;
+}
+
 .headerSignupContainer{
     height: 10vh;
     background-color: #00ADB5;
