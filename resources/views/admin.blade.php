@@ -163,13 +163,15 @@
                 <td>{{ $producto->stock }}</td>
                 <td>{{ $producto->precio_unitario }}</td>
                 <td>
-                
-                    <a href="/mi-tienda/admin/producto/{{ $producto->id_producto }}/editar" style="text-decoration:none; color:#black;">Modificar producto</a>
+                    <div class="divEdit">
+                    <a class="buttonAdm" href="/mi-tienda/admin/producto/{{ $producto->id_producto }}/editar" style="text-decoration:none; font-weight:300; width:100%; padding:5%; margin-top:10% !important">Modificar producto</a>
+
+                    </div>
                 </td>
                 <td><form method="POST" action="/mi-tienda/admin/producto/{{ $producto->id_producto }}/eliminar">
                     @csrf 
                     @method('DELETE')
-                    <button class="buttonAdm" style="font-weight:300; width:100%; padding:5%; margin-top:2%">Eliminar</button>
+                    <button class="buttonAdm" style="font-weight:300; width:100%; padding:5%; margin-top:10%">Eliminar</button>
                     
                 </form></td>
             </tr>
