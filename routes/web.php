@@ -46,7 +46,7 @@ Route::post('mi-tienda/carrito/agregar/{producto}', [ProductoController::class, 
 
 Route::post('mi-tienda/carrito/eliminar', [ProductoController::class, 'eliminar'])->middleware('auth');
 
-Route::get('mi-tienda/producto/{producto}', [ProductoController::class, 'producto'])->middleware('auth');
+Route::get('mi-tienda/producto/{producto}', [ProductoController::class, 'producto']);
 
 Route::get('mi-tienda/carrito/confirmar', [ProductoController::class, 'confirmar'])->middleware('auth');
 

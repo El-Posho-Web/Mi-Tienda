@@ -67,12 +67,15 @@
                   @if ($producto->stock === 0)
                       <h2>No hay stock del producto</h2>
                   @else
-                      
+                  @auth
                   <form method="POST" action="/mi-tienda/carrito/agregar/{{$producto->id_producto}}" >
                       @csrf
                       <input type="number" id="cantidad" name="cantidad" min="1" max="{{$producto->stock}}" value="1" onkeydown="return false">
                       <button type="submit" class="btn btn-primary">Agregar al carrito</button>
                   </form>
+                  @else
+                  <h2>Tienes que loguearte para agregar un producto al carrito</h2>
+                  @endauth
                   @endif
             </div>
           </div>
