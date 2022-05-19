@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             'dni' => '12345678',
             'domicilio' => 'asd',
             'email' => 'admin@ejemplo.com',
+            'admin' => 1,
             'password' => '1234'
         ]);
 
