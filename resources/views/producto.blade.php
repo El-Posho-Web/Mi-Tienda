@@ -64,11 +64,16 @@
                         Precio ${{$producto->precio_unitario}}
                     </li>
                 </ul>
-                <form method="POST" action="/mi-tienda/carrito/agregar/{{$producto->id_producto}}" >
-                    @csrf
-                    <input type="number" id="cantidad" name="cantidad" min="1" max="{{$producto->stock}}" value="1" onkeydown="return false">
-                    <button type="submit" class="btn btn-primary">Agregar al carrito</button>
-                </form>
+                  @if ($producto->stock === 0)
+                      <h2>No hay stock del producto</h2>
+                  @else
+                      
+                  <form method="POST" action="/mi-tienda/carrito/agregar/{{$producto->id_producto}}" >
+                      @csrf
+                      <input type="number" id="cantidad" name="cantidad" min="1" max="{{$producto->stock}}" value="1" onkeydown="return false">
+                      <button type="submit" class="btn btn-primary">Agregar al carrito</button>
+                  </form>
+                  @endif
             </div>
           </div>
       </div>
