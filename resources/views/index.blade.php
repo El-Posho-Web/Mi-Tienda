@@ -51,9 +51,10 @@
                 <li><hr class="dropdown-divider"></li>
                 <li><form method="POST" action="/mi-tienda/logout" >
                   @csrf
+
                   <button type="submit" class="dropdown-item">Cerrar Sesion</button></li>
               </ul> -->
-              
+
             </div>
             @else
             <a href="/mi-tienda/login" class="nav-link px-2 link-dark ms-auto">Ingresar</a>
@@ -73,7 +74,14 @@
               @endforeach
             </ul>
           </div>
-          <a href="#" class="nav-link link-dark px-2 ms-auto">Mis pedidos</a>
+          @auth
+            <ul class="nav ms-auto">
+              <li class="nav-item"><a href="#" class="nav-link link-dark px-2 ms-auto">Mis pedidos</a></li>
+              <li class="nav-item"><a href="/mi-tienda/carrito" class="nav-link link-dark px-2">Mi carrito de compras</a></li>
+            </ul>     
+          @endauth  
+{{--           <a href="#" class="nav-link link-dark px-2 ms-auto">Mis pedidos</a>
+          <a href="#" class="nav-link link-dark px-2 ms-auto">Mis pedidos</a> --}}
         </div>
       </nav>
       <!-- header end -->
@@ -81,6 +89,34 @@
       @if (session()->has('correcto'))
       <div class="alert alert-success alert-dismissible fade show" role="alert">
         {{ session('correcto') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      @endif
+
+      @if (session()->has('productoexiste'))
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{ session('productoexiste') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      @endif
+
+      @if (session()->has('compracancelada'))
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{ session('compracancelada') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      @endif
+
+      @if (session()->has('comprarealizada'))
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ session('comprarealizada') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      @endif
+
+      @if (session()->has('sinstock'))
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ session('sinstock') }}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
       @endif
@@ -95,7 +131,7 @@
                 <h5 class="card-title">{{ $producto->nombre }}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">{{ $producto->categoria->nombre }}</h6>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-light">Detalles</a>
+                <a href="/mi-tienda/producto/{{ $producto->id_producto }}" class="btn btn-light">Detalles</a>
               </div>
             </div>
           </div>
@@ -104,7 +140,6 @@
       </div>
 
       <div class="container">
-
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
           <div class="col-md-4 d-flex align-items-center">
             <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">

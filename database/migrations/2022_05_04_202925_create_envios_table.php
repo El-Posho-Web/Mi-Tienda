@@ -17,7 +17,8 @@ return new class extends Migration
             $table->id('id_envio');
             $table->unsignedBigInteger('id_compra');
             $table->foreign('id_compra')->references('id_compra')->on('compras');
-            $table->float('costo_envio');
+            $table->string('direccion');
+            $table->boolean('enviado')->default(false);
             $table->timestamps();
         });
     }
