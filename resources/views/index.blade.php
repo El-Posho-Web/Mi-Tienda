@@ -82,6 +82,27 @@
       </div>
       @endif
 
+      @if (session()->has('compracancelada'))
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{ session('compracancelada') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      @endif
+
+      @if (session()->has('comprarealizada'))
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ session('comprarealizada') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      @endif
+
+      @if (session()->has('sinstock'))
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ session('sinstock') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      @endif
+
       <div class="container">
         <div class="row row-cols-4">
           @foreach ($productos as $producto)       

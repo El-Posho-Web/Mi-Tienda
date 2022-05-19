@@ -11,4 +11,5 @@ class Envio extends Model
 
 
     protected $primaryKey = 'id_envio';
+    protected $guarded = [];
 }

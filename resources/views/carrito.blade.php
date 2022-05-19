@@ -34,6 +34,7 @@
                 <li><form method="POST" action="/mi-tienda/logout" >
                   @csrf
                   <button type="submit" class="dropdown-item">Cerrar Sesion</button></li>
+                </form>
               </ul>
             </div>
             @else
