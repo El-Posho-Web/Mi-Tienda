@@ -16,4 +16,5 @@ class Categoria extends Model
     {
         return $this->hasMany(Producto::class, 'id_categoria');
     }
+    protected $guarded = [];
 }

@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"> 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,21 +23,38 @@
               <img src="/img/avatar.png" alt="" height="60px">
             </a> 
             @auth
-            <div class="dropdown text-end ms-auto">
+            <!-- <div class="dropdown text-end ms-auto">
               <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                 {{-- <img src="..." alt="mdo" width="32" height="32" class="rounded-circle"> --}}
-                Mi Cuenta
-              </a>
-              <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+              </a> -->
+              
+
+              <div class="dropdown text-end ms-auto">
+          <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+            {{$usuario->nombre}}
+          </a>
+              <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
+              <li><h6 class="dropdown-item">U: {{$usuario->nombre}}</h6></li>
+                    <li><h6 class="dropdown-item">R: </h6></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><form method="POST" action="/mi-tienda/logout" >
+                      @csrf
+                      <button type="submit" class="dropdown-item">Cerrar Sesion</button></li>
+                  
+                </ul>
+              </div>
+
+             <!--  <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
                 <li><h6 class="dropdown-item">U: {{$usuario->nombre}}</h6></li>
                 <li><h6 class="dropdown-item">R: </h6></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><form method="POST" action="/mi-tienda/logout" >
                   @csrf
-                  <button type="submit" class="dropdown-item">Cerrar Sesion</button>
-                   </form>
-                </li>
-              </ul>
+
+                  <button type="submit" class="dropdown-item">Cerrar Sesion</button></li>
+              </ul> -->
+
             </div>
             @else
             <a href="/mi-tienda/login" class="nav-link px-2 link-dark ms-auto">Ingresar</a>

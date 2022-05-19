@@ -6,6 +6,7 @@ use App\Http\Controllers\SesionController;
 use App\Http\Controllers\ProductoController;
 use App\Models\Producto;
 use App\Models\Categoria;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,3 +59,15 @@ Route::post('mi-tienda/logout', [SesionController::class, 'logout'])->middleware
 Route::get('mi-tienda/registro', [RegistroController::class, 'crear'])->middleware('guest');
 
 Route::post('mi-tienda/registro', [RegistroController::class, 'guardar'])->middleware('guest');
+
+Route::get('mi-tienda/admin', [AdminController::class, 'admin'])->middleware('isadmin');
+
+Route::post('mi-tienda/admin/producto', [AdminController::class, 'producto']);
+
+Route::post('mi-tienda/admin/categoria', [AdminController::class, 'categoria']);
+
+Route::get('mi-tienda/admin/producto/{producto}/editar', [AdminController::class, 'editarproducto']);
+
+Route::post('mi-tienda/admin/producto/{producto}/actualizar', [AdminController::class, 'actualizarproducto']);
+
+Route::delete('mi-tienda/admin/producto/{producto}/eliminar', [AdminController::class, 'destruirproducto']);
