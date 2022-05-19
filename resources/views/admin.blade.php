@@ -8,6 +8,7 @@
     <!-- <link rel="stylesheet" href="/css/main.css"> -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script src="https://kit.fontawesome.com/be85762cea.js" crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500&display=swap" rel="stylesheet">
     <title>Admin</title>
@@ -23,7 +24,7 @@
                     <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Agregar categoria</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Contact</button>
+                    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Modificar productos</button>
                 </li>
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="disabled-tab" data-bs-toggle="tab" data-bs-target="#disabled-tab-pane" type="button" role="tab" aria-controls="disabled-tab-pane" aria-selected="false" disabled>Disabled</button>
@@ -39,12 +40,14 @@
 
                     <!-- PRODUCTOS TAB -->
 
-                <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0"><div class="header" >
+                <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+                    <div class="header" >
                             <div class="tituloHeader"> <p>Productos</p></div>
                         
                         </div>
                         <div class="actionHeader">
-                        <div class="tituloActionHeader"> <p>Introduzca el nuevo producto</p></div>
+                        <div class="tituloActionHeader"> <p>Introduzca el nuevo producto</p>
+                            </div>
                         </div>
                     
                     <form method="POST" action="/mi-tienda/admin/producto">
@@ -67,11 +70,11 @@
                         <div class="div2InputsContainer">
                         <div class="divInputPlusLabelThreeParts">
                                                 <label for="stock"> Stock </label>
-                                                <input class="inputSignup" type="number" name="stock" id="stock">
+                                                <input class="inputSignup" type="number" name="stock" id="stock" min="0" step="1">
                                     </div>
                                     <div class="divInputPlusLabelThreeParts">
                                                 <label for="precio"> Precio </label>
-                                                <input class="inputSignup" type="number" name="precio_unitario" id="precio_unitario">
+                                                <input class="inputSignup" type="number" name="precio_unitario" id="precio_unitario" >
                                     </div>
                                     <div class="divInputPlusLabelThreeParts">
                                                 <label for="cat"> Categoria </label>
@@ -92,13 +95,19 @@
                         
                         </div>
                         </form>
+
                     </div>
+
+
+                
+        
                        <!-- PRODUCTOS TAB END -->
 
 
 
                     <!-- CATEGORIAS TAB -->
-            <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0"><div class="header" >
+            <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                <div class="header" >
                         <div class="tituloHeader"> <p>Categorias</p></div>
                     
                     </div>
@@ -125,7 +134,54 @@
             </div>
 
               <!-- CATEGORIAS TAB END -->
-  <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">...</div>
+
+              <!-- MODIFICAR PRODUCTO TAB -->
+  <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+                    
+                     <div class="header" >
+                    <div class="tituloHeader"> <p>Modificar producto</p></div>                 
+                        </div>
+                        <div class="actionHeader">
+                        <div class="tituloActionHeader"> <p>Seleccione el producto en la tabla para modificarlo</p></div>
+                        </div>
+
+                        <!-- TABLE BEGIN -->
+                        <div class="tableWrapper">
+                        <table class="tableWrapper">
+
+        <tbody>
+            @php
+                $productos = \App\Models\Producto::all();
+            @endphp
+
+            <tr><th>NOMBRE</th><th>DESCRIPCION</th><th>STOCK</th><th>PRECIO UNITARIO</th><th></th> <th></th></tr>
+
+            @foreach ($productos as $producto)
+            <tr>
+                <td>{{ $producto->nombre }}</td>
+                <td>{{ $producto->descripcion }}</td>
+                <td>{{ $producto->stock }}</td>
+                <td>{{ $producto->precio_unitario }}</td>
+                <td>
+                
+                    <a href="/mi-tienda/admin/producto/{{ $producto->id_producto }}/editar" style="text-decoration:none; color:#black;">Modificar producto</a>
+                </td>
+                <td><form method="POST" action="/mi-tienda/admin/producto/{{ $producto->id_producto }}/eliminar">
+                    @csrf 
+                    @method('DELETE')
+                    <button class="buttonAdm" style="font-weight:300; width:100%; padding:5%; margin-top:2%">Eliminar</button>
+                    
+                </form></td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+                        </div>
+  
+        <!-- TABLE END -->
+
+</div>
+<!-- TABLE TAB END -->
   <div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">...</div>
 </div>
 
@@ -175,5 +231,6 @@
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
 
 </html>

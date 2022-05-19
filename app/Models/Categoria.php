@@ -12,12 +12,9 @@ class Categoria extends Model
 
     protected $primaryKey = 'id_categoria';
 
-<<<<<<< HEAD
     public function productos()
     {
         return $this->hasMany(Producto::class, 'id_categoria');
     }
-=======
     protected $guarded = [];
->>>>>>> 4369d6eaa487ca5bfd60b95eb894491db6f934c4
 }
