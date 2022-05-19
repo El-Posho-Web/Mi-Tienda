@@ -40,7 +40,9 @@
                     <li><hr class="dropdown-divider"></li>
                     <li><form method="POST" action="/mi-tienda/logout" >
                       @csrf
-                      <button type="submit" class="dropdown-item">Cerrar Sesion</button></li>
+                      <button type="submit" class="dropdown-item">Cerrar Sesion</button>
+                      </form>
+                    </li>
                   
                 </ul>
               </div>
@@ -126,7 +128,7 @@
           @foreach ($productos as $producto)       
           <div class="col mt-5">
             <div class="card" style="width: 18rem;">
-              <img src="/img/Redsquare.png" class="card-img-top" alt="...">
+              <img src="http://via.placeholder.com/640x700" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title">{{ $producto->nombre }}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">{{ $producto->categoria->nombre }}</h6>

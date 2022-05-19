@@ -253,3 +253,27 @@ justify-content: center;
     border-color: #EEEEEE;
     margin-right: 20px;
 }
+
+.contenedor-tarjeta-producto{
+    height: 70vh;
+}
+
+.contenedor-imagen-producto{
+    width: 65%;
+    height: 100%;
+}
+
+.contenedor-detalles-producto{
+    width: 35%;
+    height: 100%;
+}
+
+.item-detalle-producto{
+   background-color: rgba(248,249,250,1);
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+

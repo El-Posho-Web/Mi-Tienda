@@ -22,21 +22,40 @@
               <img src="/img/avatar.png" alt="" height="60px">
             </a> 
             @auth
-            <div class="dropdown text-end ms-auto">
+            <!-- <div class="dropdown text-end ms-auto">
               <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                 {{-- <img src="..." alt="mdo" width="32" height="32" class="rounded-circle"> --}}
-                Mi Cuenta
-              </a>
-              <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+              </a> -->
+              
+
+              <div class="dropdown text-end ms-auto">
+          <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+            {{$usuario->nombre}}
+          </a>
+              <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
+              <li><h6 class="dropdown-item">U: {{$usuario->nombre}}</h6></li>
+                    <li><h6 class="dropdown-item">R: </h6></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><form method="POST" action="/mi-tienda/logout" >
+                      @csrf
+                      <button type="submit" class="dropdown-item">Cerrar Sesion</button>
+                      </form>
+                    </li>
+                    
+                </ul>
+              </div>
+
+             <!--  <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
                 <li><h6 class="dropdown-item">U: {{$usuario->nombre}}</h6></li>
                 <li><h6 class="dropdown-item">R: </h6></li>
                 <li><hr class="dropdown-divider"></li>
-                <li>
-                <form method="POST" action="/mi-tienda/logout" >
+                <li><form method="POST" action="/mi-tienda/logout" >
                   @csrf
+
                   <button type="submit" class="dropdown-item">Cerrar Sesion</button></li>
-                </form>
-              </ul>
+              </ul> -->
+
             </div>
             @else
             <a href="/mi-tienda/login" class="nav-link px-2 link-dark ms-auto">Ingresar</a>
@@ -44,10 +63,14 @@
           </div>
         </div>
       </header>
-      <div class="container vh-100 mt-3">
-        <div class="container w-75 h-100 bg-light rounded">
-            <div class="flex">
-                <ul>
+      <div class="container mt-3 contenedor-tarjeta-producto">
+        <div class="container d-flex flex-row w-75 h-100 bg-light rounded tarjeta-producto">
+            <div class="container p-5 contenedor-imagen-producto border-end">
+              <div>
+
+                <img src="http://via.placeholder.com/640x700" alt="">
+              </div>
+{{--                 <ul>
                     <li>
                         <h6>Categoria {{$producto->categoria->nombre}}</h6>
                     </li>
@@ -76,7 +99,44 @@
                   @else
                   <h2>Tienes que loguearte para agregar un producto al carrito</h2>
                   @endauth
-                  @endif
+                  @endif --}}
+
+            </div>
+            <div class="container py-5 contenedor-detalles-producto">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item item-detalle-producto">
+                    <h2>{{$producto->nombre}}</h5>
+                    <h6>Categoria {{$producto->categoria->nombre}}</h6>
+                </li>
+                <li class="list-group-item item-detalle-producto">
+                    {{$producto->descripcion}}
+                </li>
+                <li class="list-group-item item-detalle-producto">
+                    Stock disponible {{$producto->stock}}
+                </li>
+                <li class="list-group-item item-detalle-producto">
+                    Precio por unidad ${{$producto->precio_unitario}}
+                </li>
+                @if ($producto->stock === 0)
+                <li class="list-group-item item-detalle-producto pt-4">
+                  <h5>No hay stock del producto</h2>
+                </li>  
+                @else
+                  @auth
+                  <li class="list-group-item item-detalle-producto pt-4">
+                    <form method="POST" action="/mi-tienda/carrito/agregar/{{$producto->id_producto}}" >
+                      @csrf
+                      <input type="number" id="cantidad" name="cantidad" min="1" max="{{$producto->stock}}" value="1" onkeydown="return false">
+                      <button type="submit" class="btn btn-light">Agregar al carrito</button>
+                  </form>
+                  </li> 
+                  @else
+                  <li class="list-group-item item-detalle-producto pt-4">
+                    <h5>Tienes que loguearte para agregar un producto al carrito</h2>
+                  </li>                   
+                  @endauth
+                @endif
+              </ul>
             </div>
           </div>
       </div>
