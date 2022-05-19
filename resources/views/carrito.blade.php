@@ -33,9 +33,7 @@
                 <li><hr class="dropdown-divider"></li>
                 <li><form method="POST" action="/mi-tienda/logout" >
                   @csrf
-                  <button type="submit" class="dropdown-item">Cerrar Sesion</button>
-                   </form>
-                </li>
+                  <button type="submit" class="dropdown-item">Cerrar Sesion</button></li>
               </ul>
             </div>
             @else
@@ -46,16 +44,6 @@
       </header>
       <nav class="bg-light py-3 border-bottom">
         <div class="container d-flex flex-wrap">
-          <div class="dropdown text-end">
-            <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-              Categorias
-            </a>
-            <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-              @foreach ($categorias as $categoria)
-              <li><a class="dropdown-item" href="/mi-tienda/categoria/{{$categoria->nombre}}">{{$categoria->nombre}}</a></li>
-              @endforeach
-            </ul>
-          </div>
           @auth
             <ul class="nav ms-auto">
               <li class="nav-item"><a href="#" class="nav-link link-dark px-2 ms-auto">Mis pedidos</a></li>
@@ -66,57 +54,57 @@
           <a href="#" class="nav-link link-dark px-2 ms-auto">Mis pedidos</a> --}}
         </div>
       </nav>
-      <!-- header end -->
-
-      @if (session()->has('correcto'))
+      @if (session()->has('productoagregado'))
       <div class="alert alert-success alert-dismissible fade show" role="alert">
-        {{ session('correcto') }}
+        {{ session('productoagregado') }}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
       @endif
-
-      @if (session()->has('productoexiste'))
-      <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        {{ session('productoexiste') }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-      @endif
-
-      <div class="container">
-        <div class="row row-cols-4">
-          @foreach ($productos as $producto)       
-          <div class="col mt-5">
-            <div class="card" style="width: 18rem;">
-              <img src="/img/Redsquare.png" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">{{ $producto->nombre }}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">{{ $producto->categoria->nombre }}</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="/mi-tienda/producto/{{ $producto->id_producto }}" class="btn btn-light">Detalles</a>
-              </div>
-            </div>
-          </div>
-          @endforeach
-        </div>
-      </div>
-
-      <div class="container">
-        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-          <div class="col-md-4 d-flex align-items-center">
-            <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-              <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
-            </a>
-            <span class="text-muted">© 2021 Roldan chicken, Inc</span>
-          </div>
       
-          <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
-            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
-            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
-          </ul>
-        </footer>
+      @if (session()->has('productoeliminado'))
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        {{ session('productoeliminado') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
+      @endif
+      @php
+          $total = 0;
+      @endphp
+      @if (session()->has('carrito'))
+          <div class="container">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Descripcion</th>
+                  <th scope="col">Cantidad</th>
+                  <th scope="col">Precio</th>
+                  <th scope="col">Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach ($carrito as $producto => $valor)
+                <tr>
+                  <td>{{ $valor['nombre'] }}</td>
+                  <td>{{ $valor['descripcion'] }}</td>
+                  <td>{{ $valor['cantidad'] }}</td>
+                  <td>{{ $valor['total'] }}</td>
+                  <td><form method="POST" action="/mi-tienda/carrito/eliminar">@csrf  <input type="hidden" name="id_producto" id="id_producto" value="{{$producto}}"><button class="btn">Eliminar</button></form></td>
+                </tr>
+                @php
+                    $total = $total + $valor['total'];
+                @endphp
+                @endforeach
+                <td colspan="4">Total: ${{ $total }}</td>
+                <td><a href="/mi-tienda/carrito/confirmar" class="btn">Finalizar compra</a></td>
+              </tbody>
+            </table>
+          </div>
+      @else
+          <h1>No tienes productos en el carrito</h1>
+      @endif
 
+      
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
 </body>

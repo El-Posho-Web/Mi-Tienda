@@ -31,11 +31,11 @@
                 <li><h6 class="dropdown-item">U: {{$usuario->nombre}}</h6></li>
                 <li><h6 class="dropdown-item">R: </h6></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><form method="POST" action="/mi-tienda/logout" >
+                <li>
+                <form method="POST" action="/mi-tienda/logout" >
                   @csrf
-                  <button type="submit" class="dropdown-item">Cerrar Sesion</button>
-                   </form>
-                </li>
+                  <button type="submit" class="dropdown-item">Cerrar Sesion</button></li>
+                </form>
               </ul>
             </div>
             @else
@@ -44,63 +44,37 @@
           </div>
         </div>
       </header>
-      <nav class="bg-light py-3 border-bottom">
-        <div class="container d-flex flex-wrap">
-          <div class="dropdown text-end">
-            <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-              Categorias
-            </a>
-            <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-              @foreach ($categorias as $categoria)
-              <li><a class="dropdown-item" href="/mi-tienda/categoria/{{$categoria->nombre}}">{{$categoria->nombre}}</a></li>
-              @endforeach
-            </ul>
-          </div>
-          @auth
-            <ul class="nav ms-auto">
-              <li class="nav-item"><a href="#" class="nav-link link-dark px-2 ms-auto">Mis pedidos</a></li>
-              <li class="nav-item"><a href="/mi-tienda/carrito" class="nav-link link-dark px-2">Mi carrito de compras</a></li>
-            </ul>     
-          @endauth  
-{{--           <a href="#" class="nav-link link-dark px-2 ms-auto">Mis pedidos</a>
-          <a href="#" class="nav-link link-dark px-2 ms-auto">Mis pedidos</a> --}}
-        </div>
-      </nav>
-      <!-- header end -->
-
-      @if (session()->has('correcto'))
-      <div class="alert alert-success alert-dismissible fade show" role="alert">
-        {{ session('correcto') }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-      @endif
-
-      @if (session()->has('productoexiste'))
-      <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        {{ session('productoexiste') }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-      @endif
-
-      <div class="container">
-        <div class="row row-cols-4">
-          @foreach ($productos as $producto)       
-          <div class="col mt-5">
-            <div class="card" style="width: 18rem;">
-              <img src="/img/Redsquare.png" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">{{ $producto->nombre }}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">{{ $producto->categoria->nombre }}</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="/mi-tienda/producto/{{ $producto->id_producto }}" class="btn btn-light">Detalles</a>
-              </div>
+      <div class="container vh-100 mt-3">
+        <div class="container w-75 h-100 bg-light rounded">
+            <div class="flex">
+                <ul>
+                    <li>
+                        <h6>Categoria {{$producto->categoria->nombre}}</h6>
+                    </li>
+                    <li>
+                        <h5>Nombre {{$producto->nombre}}</h5>
+                    </li>
+                    <li>
+                        Descripcion {{$producto->descripcion}}
+                    </li>
+                    <li>
+                        Stock {{$producto->stock}}
+                    </li>
+                    <li>
+                        Precio ${{$producto->precio_unitario}}
+                    </li>
+                </ul>
+                <form method="POST" action="/mi-tienda/carrito/agregar/{{$producto->id_producto}}" >
+                    @csrf
+                    <input type="number" id="cantidad" name="cantidad" min="1" max="{{$producto->stock}}" value="1" onkeydown="return false">
+                    <button type="submit" class="btn btn-primary">Agregar al carrito</button>
+                </form>
             </div>
           </div>
-          @endforeach
-        </div>
       </div>
 
-      <div class="container">
+
+      <div class="container bottom-0 end-0">
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
           <div class="col-md-4 d-flex align-items-center">
             <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
@@ -116,7 +90,7 @@
           </ul>
         </footer>
       </div>
-
+      
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
 </body>

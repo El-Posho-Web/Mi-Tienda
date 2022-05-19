@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegistroController;
 use App\Http\Controllers\SesionController;
+use App\Http\Controllers\ProductoController;
 use App\Models\Producto;
 use App\Models\Categoria;
 
@@ -22,6 +23,7 @@ Route::get('/', function () {
 });
 
 Route::get('mi-tienda', function(){
+    info(session()->all());
     return view('index', [
         'productos' => Producto::with('categoria')->get(),
         'usuario' => Auth::user(),
@@ -36,6 +38,16 @@ Route::get('mi-tienda/categoria/{categoria:nombre}', function(Categoria $categor
         'categorias' => Categoria::all()
     ]);
 });
+
+Route::get('mi-tienda/carrito', [ProductoController::class, 'carrito'])->middleware('auth');
+
+Route::post('mi-tienda/carrito/agregar/{producto}', [ProductoController::class, 'agregar'])->middleware('auth');
+
+Route::post('mi-tienda/carrito/eliminar', [ProductoController::class, 'eliminar'])->middleware('auth');
+
+Route::get('mi-tienda/producto/{producto}', [ProductoController::class, 'producto'])->middleware('auth');
+
+Route::get('mi-tienda/carrito/confirmar', [ProductoController::class, 'confirmar'])->middleware('auth');
 
 Route::get('mi-tienda/login', [SesionController::class, 'crear'])->middleware('guest');
 
