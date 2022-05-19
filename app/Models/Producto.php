@@ -10,4 +10,6 @@ class Producto extends Model
     use HasFactory;
 
     protected $primaryKey = 'id_producto';
+
+    protected $guarded = [];
 }
