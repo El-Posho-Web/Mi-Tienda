@@ -18,6 +18,11 @@ use App\Http\Controllers\AdminController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+route ::get('/test', function()
+
+{
+   return view('csstest'); 
+});
 
 Route::get('/', function () {
     return redirect('mi-tienda');
