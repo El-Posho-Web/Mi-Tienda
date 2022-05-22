@@ -30,10 +30,9 @@ Route::get('/', function () {
 
 Route::get('mi-tienda', function(){
     info(session()->all());
-    return view('index', [
-        'productos' => Producto::with('categoria')->get(),
+    return view('csstest', [
         'usuario' => Auth::user(),
-        'categorias' => Categoria::all()
+        'categorias' => Categoria::with('productos')->get()
     ]);
 });
 

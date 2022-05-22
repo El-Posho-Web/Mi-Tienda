@@ -43,6 +43,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
          \App\Models\User::factory(10)->create();
-         \App\Models\Producto::factory(10)->create();
+         \App\Models\Producto::factory(40)->create();
     }
 }

@@ -30,13 +30,15 @@
 <body>
 
     {{-- arriba del header --}}
+    @auth
     <div class="aboveHeader">
         <div class="insideAboveHeader">
                 <div class="loginRegister"> 
-                    <a href="" style="font-size: 0.65rem">¡Registrate para empezar a comprar!</a>
+                    <a href="/mi-tienda/registro" style="font-size: 0.65rem">¡Registrate para empezar a comprar!</a>
                 </div>
         </div>
-    </div>
+    </div> 
+    @endauth
 
 
     {{-- header --}}
@@ -128,141 +130,55 @@
     
 
 
-          <div class="containerAllProductos">
-
-            {{-- carrusel de items  --}}
-
-            <div id="carruselProductos" class="carousel slide" data-bs-ride="carousel">
+    
+    {{-- carrusel de items  --}}
+    @php
+        $i = 0;
+    @endphp
+    @foreach ($categorias as $categoria)
+      <div class="bannerCategoria bannerCategoriaHogar" style="margin-top:3%">            
+      </div>
+      <div class="containerAllProductos">
+            <h1>{{ $categoria->nombre }}</h1>
+            <div id="carruselProductos{{$i}}" class="carousel slide" data-bs-ride="carousel">
               <div id="innerCarruselProd" class="carousel-inner">
-                <div class="carousel-item active">
-                   {{-- productos de la pagina del carrusel --}}
-                   <div class="container4productos">
-
-
-                    <div class="container1producto">
-                        <div class="container1productoPic">
-      
+                @foreach ($categoria->productos->chunk(4) as $chunk)
+                    @if ($loop->first)
+                      <div class="carousel-item active">
+                        {{-- productos de la pagina del carrusel --}}
+                        <div class="container4productos">
+                          @foreach ($chunk as $producto)
+                              <div class="container1producto">
+                                  <div class="container1productoPic">
+                                  </div>
+                                  <div class="container1productoPrice">
+                                    {{ $producto->nombre }}
+                                  </div>
+                              </div>
+                          @endforeach
                         </div>
-                        <div class="container1productoPrice">
-      
+                      </div>
+                    @else
+                      <div class="carousel-item">
+                        {{-- productos de la pagina del carrusel --}}
+                        <div class="container4productos">
+                          @foreach ($chunk as $producto)
+                              <div class="container1producto">
+                                  <div class="container1productoPic">
+                                  </div>
+                                  <div class="container1productoPrice">
+                                    {{ $producto->nombre }}
+                                  </div>
+                              </div>
+                          @endforeach
                         </div>
-                    </div>
-                    <div class="container1producto">
-                      <div class="container1productoPic">
                       </div>
-                      <div class="container1productoPrice">
-                          
-                      </div>
-                  </div>
-                  <div class="container1producto">
-                    <div class="container1productoPic">
-      
-                    </div>
-                    <div class="container1productoPrice">
-                          
-                    </div>
-                </div>
-      
-                <div class="container1producto">
-                    <div class="container1productoPic">
-      
-                    </div>
-                    <div class="container1productoPrice">
-                          
-                    </div>
-                 </div>
-      
-                </div>
-
-                </div>
-
-                <div class="carousel-item">
-                   {{-- productos de la pagina del carrusel --}}
-                   <div class="container4productos">
-
-
-                    <div class="container1producto">
-                        <div class="container1productoPic">
-      
-                        </div>
-                        <div class="container1productoPrice">
-      
-                        </div>
-                    </div>
-                    <div class="container1producto">
-                      <div class="container1productoPic">
-                      </div>
-                      <div class="container1productoPrice">
-                          
-                      </div>
-                  </div>
-                  <div class="container1producto">
-                    <div class="container1productoPic">
-      
-                    </div>
-                    <div class="container1productoPrice">
-                          
-                    </div>
-                </div>
-      
-                <div class="container1producto">
-                    <div class="container1productoPic">
-      
-                    </div>
-                    <div class="container1productoPrice">
-                          
-                    </div>
-                 </div>
-      
-                </div>
-
-                </div>
-                <div class="carousel-item">
-                   {{-- productos de la pagina del carrusel --}}
-                   <div class="container4productos">
-
-
-                    <div class="container1producto">
-                        <div class="container1productoPic">
-      
-                        </div>
-                        <div class="container1productoPrice">
-      
-                        </div>
-                    </div>
-                    <div class="container1producto">
-                      <div class="container1productoPic">
-                      </div>
-                      <div class="container1productoPrice">
-                          
-                      </div>
-                  </div>
-                  <div class="container1producto">
-                    <div class="container1productoPic">
-      
-                    </div>
-                    <div class="container1productoPrice">
-                          
-                    </div>
-                </div>
-      
-                <div class="container1producto">
-                    <div class="container1productoPic">
-      
-                    </div>
-                    <div class="container1productoPrice">
-                          
-                    </div>
-                 </div>
-      
-                </div>
-
-                </div>
+                    @endif
+                @endforeach
               </div>
 
 
-
-              <button class="carousel-control-prev botonCarrusel-left" type="button" data-bs-target="#carruselProductos" data-bs-slide="prev">
+              <button class="carousel-control-prev botonCarrusel-left" type="button" data-bs-target="#carruselProductos{{$i}}" data-bs-slide="prev">
 
                 {{-- ICONO Y MEDIOCIRCULO --}}
                 <span class="material-symbols-outlined botonCarrusel" >
@@ -275,7 +191,7 @@
 
             <span class="visually-hidden">Previous</span>
               </button>
-              <button class="carousel-control-next botonCarrusel-right" type="button" data-bs-target="#carruselProductos" data-bs-slide="next">
+              <button class="carousel-control-next botonCarrusel-right" type="button" data-bs-target="#carruselProductos{{$i}}" data-bs-slide="next">
    
    
                 {{-- ICONO Y MEDIOCIRCULO --}}
@@ -290,344 +206,12 @@
                                     <span class="visually-hidden">Next</span>
               </button>
             </div>
-           
-            {{-- end carrusel de items --}}
-
-              
-
           </div>
-
-            
-              <div class="bannerCategoria bannerCategoriaHogar" style="margin-top:3%">            
-              </div>
-
-              <div class="containerAllProductos">
-              
-           {{-- 2do carrusel de items  --}}
-
-           <div id="carruselProductos2" class="carousel slide" data-bs-ride="carousel">
-            <div id="innerCarruselProd" class="carousel-inner">
-              <div class="carousel-item active">
-                 {{-- productos de la pagina del carrusel --}}
-                 <div class="container4productos">
-
-
-                  <div class="container1producto">
-                      <div class="container1productoPic">
-    
-                      </div>
-                      <div class="container1productoPrice">
-    
-                      </div>
-                  </div>
-                  <div class="container1producto">
-                    <div class="container1productoPic">
-                    </div>
-                    <div class="container1productoPrice">
-                        
-                    </div>
-                </div>
-                <div class="container1producto">
-                  <div class="container1productoPic">
-    
-                  </div>
-                  <div class="container1productoPrice">
-                        
-                  </div>
-              </div>
-    
-              <div class="container1producto">
-                  <div class="container1productoPic">
-    
-                  </div>
-                  <div class="container1productoPrice">
-                        
-                  </div>
-               </div>
-    
-              </div>
-
-              </div>
-
-              <div class="carousel-item">
-                 {{-- productos de la pagina del carrusel --}}
-                 <div class="container4productos">
-
-
-                  <div class="container1producto">
-                      <div class="container1productoPic">
-    
-                      </div>
-                      <div class="container1productoPrice">
-    
-                      </div>
-                  </div>
-                  <div class="container1producto">
-                    <div class="container1productoPic">
-                    </div>
-                    <div class="container1productoPrice">
-                        
-                    </div>
-                </div>
-                <div class="container1producto">
-                  <div class="container1productoPic">
-    
-                  </div>
-                  <div class="container1productoPrice">
-                        
-                  </div>
-              </div>
-    
-              <div class="container1producto">
-                  <div class="container1productoPic">
-    
-                  </div>
-                  <div class="container1productoPrice">
-                        
-                  </div>
-               </div>
-    
-              </div>
-
-              </div>
-              <div class="carousel-item">
-                 {{-- productos de la pagina del carrusel --}}
-                 <div class="container4productos">
-
-
-                  <div class="container1producto">
-                      <div class="container1productoPic">
-    
-                      </div>
-                      <div class="container1productoPrice">
-    
-                      </div>
-                  </div>
-                  <div class="container1producto">
-                    <div class="container1productoPic">
-                    </div>
-                    <div class="container1productoPrice">
-                        
-                    </div>
-                </div>
-                <div class="container1producto">
-                  <div class="container1productoPic">
-    
-                  </div>
-                  <div class="container1productoPrice">
-                        
-                  </div>
-              </div>
-    
-              <div class="container1producto">
-                  <div class="container1productoPic">
-    
-                  </div>
-                  <div class="container1productoPrice">
-                        
-                  </div>
-               </div>
-    
-              </div>
-
-              </div>
-            </div>
-
-
-
-            <button class="botonCarrusel-left carousel-control-prev " type="button" data-bs-target="#carruselProductos2" data-bs-slide="prev">
-              
-              {{-- ICONO Y MEDIOCIRCULO --}}
-               <span class="material-symbols-outlined botonCarrusel" >
-                arrow_back_ios
-                </span>  
-                <div class="half-circle left">
-                </div>
-
-               {{-- FIN ICONO Y MEDIOCIRCULO --}}  
-          <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next botonCarrusel-right" type="button" data-bs-target="#carruselProductos2" data-bs-slide="next">
-
-               {{-- ICONO Y MEDIOCIRCULO --}}
-               <span class="material-symbols-outlined botonCarrusel">
-                arrow_forward_ios
-                </span>
-                <div class="half-circle right">      
-                </div>
-               {{-- FIN ICONO Y MEDIOCIRCULO --}}
-                                  <span class="visually-hidden">Next</span>
-            </button>
-          </div>
-         
-          {{-- end carrusel de items --}}
-        </div>
-
-
-
-        
-          <div class="bannerCategoria bannerCategoriaElectro" style="margin-top:3%">
-          </div>
-            <div class="containerAllProductos">
-            <div id="carruselProductos3" class="carousel slide" data-bs-ride="carousel">
-              <div id="innerCarruselProd" class="carousel-inner">
-                <div class="carousel-item active">
-                   {{-- productos de la pagina del carrusel --}}
-                   <div class="container4productos">
-  
-  
-                    <div class="container1producto">
-                        <div class="container1productoPic">
-      
-                        </div>
-                        <div class="container1productoPrice">
-      
-                        </div>
-                    </div>
-                    <div class="container1producto">
-                      <div class="container1productoPic">
-                      </div>
-                      <div class="container1productoPrice">
-                          
-                      </div>
-                  </div>
-                  <div class="container1producto">
-                    <div class="container1productoPic">
-      
-                    </div>
-                    <div class="container1productoPrice">
-                          
-                    </div>
-                </div>
-      
-                <div class="container1producto">
-                    <div class="container1productoPic">
-      
-                    </div>
-                    <div class="container1productoPrice">
-                          
-                    </div>
-                 </div>
-      
-                </div>
-  
-                </div>
-  
-                <div class="carousel-item">
-                   {{-- productos de la pagina del carrusel --}}
-                   <div class="container4productos">
-  
-  
-                    <div class="container1producto">
-                        <div class="container1productoPic">
-      
-                        </div>
-                        <div class="container1productoPrice">
-      
-                        </div>
-                    </div>
-                    <div class="container1producto">
-                      <div class="container1productoPic">
-                      </div>
-                      <div class="container1productoPrice">
-                          
-                      </div>
-                  </div>
-                  <div class="container1producto">
-                    <div class="container1productoPic">
-      
-                    </div>
-                    <div class="container1productoPrice">
-                          
-                    </div>
-                </div>
-      
-                <div class="container1producto">
-                    <div class="container1productoPic">
-      
-                    </div>
-                    <div class="container1productoPrice">
-                          
-                    </div>
-                 </div>
-      
-                </div>
-  
-                </div>
-                <div class="carousel-item">
-                   {{-- productos de la pagina del carrusel --}}
-                   <div class="container4productos">
-  
-  
-                    <div class="container1producto">
-                        <div class="container1productoPic">
-      
-                        </div>
-                        <div class="container1productoPrice">
-      
-                        </div>
-                    </div>
-                    <div class="container1producto">
-                      <div class="container1productoPic">
-                      </div>
-                      <div class="container1productoPrice">
-                          
-                      </div>
-                  </div>
-                  <div class="container1producto">
-                    <div class="container1productoPic">
-      
-                    </div>
-                    <div class="container1productoPrice">
-                          
-                    </div>
-                </div>
-      
-                <div class="container1producto">
-                    <div class="container1productoPic">
-      
-                    </div>
-                    <div class="container1productoPrice">
-                          
-                    </div>
-                 </div>
-      
-                </div>
-  
-                </div>
-              </div>
-  
-  
-  
-              <button class="carousel-control-prev botonCarrusel-left" type="button" data-bs-target="#carruselProductos3" data-bs-slide="prev">
-             
-              {{-- ICONO Y MEDIOCIRCULO --}}
-              <span class="material-symbols-outlined botonCarrusel" >
-                arrow_back_ios
-                </span>  
-                <div class="half-circle left">
-                </div>
-
-               {{-- FIN ICONO Y MEDIOCIRCULO --}}
-                 
-            <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next botonCarrusel-right" type="button" data-bs-target="#carruselProductos3" data-bs-slide="next">
-                {{-- ICONO Y MEDIOCIRCULO --}}
-                <span class="material-symbols-outlined botonCarrusel">
-                  arrow_forward_ios
-                  </span>
-                  <div class="half-circle right">      
-                  </div>
-                 {{-- FIN ICONO Y MEDIOCIRCULO --}}
-                                    <span class="visually-hidden">Next</span>
-              </button>
-            </div>
-           
-            {{-- end carrusel de items --}}
-          
-          </div>
-        </div>
+      @php
+        $i++;
+      @endphp
+    @endforeach       
+    {{-- end carrusel de items --}}
 
 </body>
 <div class="container">

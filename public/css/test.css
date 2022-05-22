@@ -257,18 +257,20 @@ right: -5.8% !important;
     width: 100%;
     margin: auto;
 margin-bottom: 3%;
-border-radius: 5px;}
+border-radius: 5px;
+
+}
 
 .bannerCategoriaHogar{
     background: url(/img/HOGAR.JPG) center no-repeat;
     object-fit:cover ;
-    background-position: top left;
+    background-position: center;
 }
 
 .bannerCategoriaElectro{
     background: url(/img/electro.jpg) center no-repeat;
     object-fit:cover ;
-    background-position: top left;
+    background-position: center;
 }
 
 
