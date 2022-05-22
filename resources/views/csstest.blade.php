@@ -136,10 +136,9 @@
         $i = 0;
     @endphp
     @foreach ($categorias as $categoria)
-      <div class="bannerCategoria bannerCategoriaHogar" style="margin-top:3%">            
+      <div class="bannerCategoria bannerCategoria{{ $categoria->nombre }}" style="margin-top:3%">            
       </div>
       <div class="containerAllProductos">
-            <h1>{{ $categoria->nombre }}</h1>
             <div id="carruselProductos{{$i}}" class="carousel slide" data-bs-ride="carousel">
               <div id="innerCarruselProd" class="carousel-inner">
                 @foreach ($categoria->productos->chunk(4) as $chunk)
@@ -148,13 +147,18 @@
                         {{-- productos de la pagina del carrusel --}}
                         <div class="container4productos">
                           @foreach ($chunk as $producto)
-                              <div class="container1producto">
-                                  <div class="container1productoPic">
-                                  </div>
-                                  <div class="container1productoPrice">
-                                    {{ $producto->nombre }}
-                                  </div>
+                          <a href="" class="container1producto">
+                            <div class="container1producto">
+                              <div class="container1productoPic">
                               </div>
+                              <div class="container1productoPrice">
+                                 ${{ $producto->precio_unitario }}
+                                 <span class="productName">{{ $producto->nombre }}</span>
+                                 
+                              </div>
+                          </div>
+                          </a>
+                              
                           @endforeach
                         </div>
                       </div>
@@ -163,13 +167,17 @@
                         {{-- productos de la pagina del carrusel --}}
                         <div class="container4productos">
                           @foreach ($chunk as $producto)
-                              <div class="container1producto">
-                                  <div class="container1productoPic">
-                                  </div>
-                                  <div class="container1productoPrice">
-                                    {{ $producto->nombre }}
-                                  </div>
+                          <a href="" class="container1producto">
+                            <div class="container1producto">
+                              <div class="container1productoPic">
                               </div>
+                              <div class="container1productoPrice">
+                                 ${{ $producto->precio_unitario }}
+                                 <span class="productName">{{ $producto->nombre }}</span>
+                                 
+                              </div>
+                          </div>
+                          </a>
                           @endforeach
                         </div>
                       </div>
@@ -212,6 +220,8 @@
       @endphp
     @endforeach       
     {{-- end carrusel de items --}}
+
+
 
 </body>
 <div class="container">
