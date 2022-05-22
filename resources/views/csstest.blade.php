@@ -150,6 +150,7 @@
                           @foreach ($chunk as $producto)
                               <div class="container1producto">
                                   <div class="container1productoPic">
+                                    <img src="https://via.placeholder.com/640x480.png/CCCCCC?text={{$categoria->nombre}}+{{$producto->nombre}}" alt="">
                                   </div>
                                   <div class="container1productoPrice">
                                     {{ $producto->nombre }}
@@ -165,6 +166,7 @@
                           @foreach ($chunk as $producto)
                               <div class="container1producto">
                                   <div class="container1productoPic">
+                                    <img src="https://via.placeholder.com/640x480.png/CCCCCC?text={{$categoria->nombre}}" alt="">
                                   </div>
                                   <div class="container1productoPrice">
                                     {{ $producto->nombre }}
