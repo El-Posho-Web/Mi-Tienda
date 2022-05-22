@@ -199,21 +199,35 @@ width: 25%;
     width: 100%;
 }
 
+.container4productos a{
+    color: black;
+    width: 23%;
+    text-decoration: none;
+    outline: none;
+    border: none;
+
+}
+.container4productos a:hover{
+    color: black;
+
+}
+
 
 .container1producto{
     display: flex   ;
-flex-direction: column;
+    flex-direction: column;
     background-color: #fff;
   
-    height: 330px;
-    width:23% ;
-    border:   1px solid rgb(180, 180, 180);
+    height: 360px;
+/*     width:23% ;
+ */    border:   1px solid rgb(180, 180, 180);
     ;
 }
 
 .container1productoPic{
-    
-    height: 70%;
+    background-color: #00ADB5;
+    padding: 5%;
+    height: 65%;
     width: 100%;
 }
 .container1producto:hover{
@@ -230,9 +244,24 @@ flex-direction: column;
 }
 
 .container1productoPrice{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 1.5rem;
+    padding: 7.5%;
     border-top: 1px solid rgb(179, 179, 179) ;
-    height: 30%;
+    height: 35%;
     width: 100%;
+}
+
+.productName{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 0.8rem;
+    color: #9b9d9f;
 }
 
 
@@ -268,14 +297,24 @@ border-radius: 5px;
 }
 
 .bannerCategoriaHogar{
-    background: url(/img/HOGAR.JPG) center no-repeat;
-    object-fit:cover ;
+    background: url(/img/bannerCat/Hogar.jpg) center no-repeat;
+    background-size:cover ;
     background-position: center;
 }
 
-.bannerCategoriaElectro{
-    background: url(/img/electro.jpg) center no-repeat;
-    object-fit:cover ;
+.bannerCategoriaTecnologia{
+    background: url(/img/bannerCat/Tecnologia.jpg) center no-repeat;
+    background-size:cover ;
+    background-position: center;
+}
+.bannerCategoriaMuebles{
+    background: url(/img/bannerCat/Muebles.jpg) center no-repeat;
+    background-size:cover ;
+    background-position: center;
+}
+.bannerCategoriaDeportes{
+    background: url(/img/bannerCat/Deportes.jpg) center no-repeat;
+    background-size:cover ;
     background-position: center;
 }
 
