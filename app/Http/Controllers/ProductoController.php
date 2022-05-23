@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categoria;
 use Illuminate\Http\Request;
 use App\Models\Producto;
 use App\Models\Compra;
 use App\Models\Envio;
+
 
 class ProductoController extends Controller
 {
@@ -16,7 +18,9 @@ class ProductoController extends Controller
         return view('producto',
         [
             'producto' => $producto,
-            'usuario' => auth()->user()
+            'usuario' => auth()->user(),
+            'productos' => Producto::where('id_categoria',$producto->id_categoria)->get(),
+            'categorias' => Categoria::all()
         ]);
     }
 

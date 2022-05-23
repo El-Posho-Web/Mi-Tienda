@@ -1,147 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
-  <title>Mi Tienda</title>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    @include('head')
+
+    
+  
+    <title>producto</title>
 </head>
+
+
 <body>
-      <!-- header -->
+
+    @include('header')
+
+    {{-- Contenedor de producto y compra --}}
+    <div class="AllItemsContainer">
+
+
+      {{-- Contenedor de producto y su informacion --}}
+      <div class="prodContainer">
+
+            {{-- contenedor de foto --}}
+              <div class="prodContainerPic">
+                <img src="/img/celu.jpg"  alt="">
+              </div>
+
+              {{-- contenedor de info --}}
+              <div class="prodContainerInfo">
+                <div class="prodContainerInfo-Title">
+                     <p style="margin: 0px; color:rgb(160, 160, 160); font-size:0.8rem">1000 vendidos</p>
+                      <h1>          
+                        CAT B26 Dual SIM 8 MB negro 8 MB RAM a a a a a a a
+                      </h1>
+                </div>
+               <div class="prodContainerInfo-Price">
+                 <span>$14.500</span>
+                 <p class="text-muted" style="font-size: 0.7rem; margin:0;">Todos los precios están expresados en pesos argentinos.</p>
+                <a href="">Ver los medios de pago</a>
+               </div>
+               <div class="prodContainerInfo-Desc">
+                 <h3>Lo que tenés que saber de este producto</h3>
+                 
+                 <br><p>
+                  Con tecnología 3D NAND.
+                  Útil para guardar programas y documentos con su capacidad de 240 GB.
+                  Resistente a fuertes golpes.
+                  Tamaño de 2.5 ".
+ Con tecnología 3D NAND.
+                  Útil para guardar programas y documentos con su capacidad de 240 GB.
+                  Resistente a fuertes golpes.
+                  Tamaño de 2.5 ".
+       Con tecnología 3D NAND.
+                  Útil para guardar programas y documentos con su capacidad de 240 GB.
+                  Resistente a fuertes golpes.
+                  Tamaño de 2.5 ".
       
-      <header class="p-3 border-bottom">
-        <div class="container">
-          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
-              <img src="/img/avatar.png" alt="" height="60px">
-            </a> 
-            @auth
-            <!-- <div class="dropdown text-end ms-auto">
-              <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                {{-- <img src="..." alt="mdo" width="32" height="32" class="rounded-circle"> --}}
-              </a> -->
-              
+                 </p>
+               </div>
 
-              <div class="dropdown text-end ms-auto">
-          <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
-            {{$usuario->nombre}}
-          </a>
-              <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
-              <li><h6 class="dropdown-item">U: {{$usuario->nombre}}</h6></li>
-                    <li><h6 class="dropdown-item">R: </h6></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><form method="POST" action="/mi-tienda/logout" >
-                      @csrf
-                      <button type="submit" class="dropdown-item">Cerrar Sesion</button>
-                      </form>
-                    </li>
-                    
-                </ul>
               </div>
-
-             <!--  <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-                <li><h6 class="dropdown-item">U: {{$usuario->nombre}}</h6></li>
-                <li><h6 class="dropdown-item">R: </h6></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><form method="POST" action="/mi-tienda/logout" >
-                  @csrf
-
-                  <button type="submit" class="dropdown-item">Cerrar Sesion</button></li>
-              </ul> -->
-
-            </div>
-            @else
-            <a href="/mi-tienda/login" class="nav-link px-2 link-dark ms-auto">Ingresar</a>
-            @endauth  
-          </div>
-        </div>
-      </header>
-      <div class="container mt-3 contenedor-tarjeta-producto">
-        <div class="container d-flex flex-row w-75 h-100 bg-light rounded tarjeta-producto">
-            <div class="container p-5 contenedor-imagen-producto border-end">
-              <div>
-
-                <img src="http://via.placeholder.com/640x700" alt="">
-              </div>
-{{--                 <ul>
-                    <li>
-                        <h6>Categoria {{$producto->categoria->nombre}}</h6>
-                    </li>
-                    <li>
-                        <h5>Nombre {{$producto->nombre}}</h5>
-                    </li>
-                    <li>
-                        Descripcion {{$producto->descripcion}}
-                    </li>
-                    <li>
-                        Stock {{$producto->stock}}
-                    </li>
-                    <li>
-                        Precio ${{$producto->precio_unitario}}
-                    </li>
-                </ul>
-                  @if ($producto->stock === 0)
-                      <h2>No hay stock del producto</h2>
-                  @else
-                  @auth
-                  <form method="POST" action="/mi-tienda/carrito/agregar/{{$producto->id_producto}}" >
-                      @csrf
-                      <input type="number" id="cantidad" name="cantidad" min="1" max="{{$producto->stock}}" value="1" onkeydown="return false">
-                      <button type="submit" class="btn btn-primary">Agregar al carrito</button>
-                  </form>
-                  @else
-                  <h2>Tienes que loguearte para agregar un producto al carrito</h2>
-                  @endauth
-                  @endif --}}
-
-            </div>
-            <div class="container py-5 contenedor-detalles-producto">
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item item-detalle-producto">
-                    <h2>{{$producto->nombre}}</h5>
-                    <h6>Categoria {{$producto->categoria->nombre}}</h6>
-                </li>
-                <li class="list-group-item item-detalle-producto">
-                    {{$producto->descripcion}}
-                </li>
-                <li class="list-group-item item-detalle-producto">
-                    Stock disponible {{$producto->stock}}
-                </li>
-                <li class="list-group-item item-detalle-producto">
-                    Precio por unidad ${{$producto->precio_unitario}}
-                </li>
-                @if ($producto->stock === 0)
-                <li class="list-group-item item-detalle-producto pt-4">
-                  <h5>No hay stock del producto</h2>
-                </li>  
-                @else
-                  @auth
-                  <li class="list-group-item item-detalle-producto pt-4">
-                    <form method="POST" action="/mi-tienda/carrito/agregar/{{$producto->id_producto}}" >
-                      @csrf
-                      <input type="number" id="cantidad" name="cantidad" min="1" max="{{$producto->stock}}" value="1" onkeydown="return false">
-                      <button type="submit" class="btn btn-light">Agregar al carrito</button>
-                  </form>
-                  </li> 
-                  @else
-                  <li class="list-group-item item-detalle-producto pt-4">
-                    <h5>Tienes que loguearte para agregar un producto al carrito</h2>
-                  </li>                   
-                  @endauth
-                @endif
-              </ul>
-            </div>
-          </div>
       </div>
 
+            {{-- Contenedor de detalles de compra --}}
 
+      <div class="compraYcarrito">
+
+          <div class="carrito">
+
+           
+              
+        <div class="carritoShipping">
+
+          <div class="carritoShippingDate">
+             
+            <span class="material-symbols-outlined">
+              local_shipping
+              </span><p>Llega entre el</p> <p style="margin-left:1%; color: black; font-weight:bold"> 30 y 31 de mayo </p> 
+               
+            </div>
+
+            <div class="carritoShippingLugar">
+               <span>Enviar a 1074 Kuhlman Park</span>
+            </div>
+
+        </div>
+          
+
+            <div class="carritoStockYcompra">
+              <p class="disponible">¡Stock Disponible!</p>
+              <div class="carritostock">
+                <span>Cantidad:</span> <input type="number" name="" id="" class="input">
+                <span style="margin-left:2%; font-size:0.85rem; color:rgb(137, 137, 137)">(40 disponibles)</span>
+              </div>
+              <div class="carritocompra">
+                <button>
+                    Comprar
+                </button>
+
+                <button>
+Agregar al carrito
+                </button>
+              </div>
+            </div>
+          </div>
+
+      </div>
+
+    </div>
+
+    
+   
+    <div class="containerAllProductos">
+      <div id="carruselProductos" class="carousel slide" data-bs-ride="carousel">
+        <div id="innerCarruselProd" class="carousel-inner">
+          @foreach ($productos->chunk(4) as $chunk)
+              @if ($loop->first)
+                <div class="carousel-item active">
+                  {{-- productos de la pagina del carrusel --}}
+                  <div class="container4productos">
+                    @foreach ($chunk as $producto)
+                    <a href="/mi-tienda/producto/{{ $producto->id_producto }}" class="container1producto">
+                      <div class="container1producto">
+                        <div class="container1productoPic">
+                          <img src="https://via.placeholder.com/640x480.png/CCCCCC?text={{$producto->nombre}}" alt="">
+                        </div>
+                        <div class="container1productoPrice">
+                           ${{ $producto->precio_unitario }}
+                           <span class="productName">{{ $producto->nombre }}</span>
+                           
+                        </div>
+                    </div>
+                    </a>
+                        
+                    @endforeach
+                  </div>
+                </div>
+              @else
+                <div class="carousel-item">
+                  {{-- productos de la pagina del carrusel --}}
+                  <div class="container4productos">
+                    @foreach ($chunk as $producto)
+                    <a href="/mi-tienda/producto/{{ $producto->id_producto }}" class="container1producto">
+                      <div class="container1producto">
+                        <div class="container1productoPic">
+                          <img src="https://via.placeholder.com/640x480.png/CCCCCC?text={{$producto->nombre}}" alt="">
+                        </div>
+                        <div class="container1productoPrice">
+                           ${{ $producto->precio_unitario }}
+                           <span class="productName">{{ $producto->nombre }}</span>
+                           
+                        </div>
+                    </div>
+                    </a>
+                    @endforeach
+                  </div>
+                </div>
+              @endif
+          @endforeach
+        </div>
+  
+  
+        <button class="carousel-control-prev botonCarrusel-left" type="button" data-bs-target="#carruselProductos" data-bs-slide="prev">
+  
+          {{-- ICONO Y MEDIOCIRCULO --}}
+          <span class="material-symbols-outlined botonCarrusel" >
+            arrow_back_ios
+            </span>  
+            <div class="half-circle left">
+            </div>
+  
+           {{-- FIN ICONO Y MEDIOCIRCULO --}}
+  
+      <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next botonCarrusel-right" type="button" data-bs-target="#carruselProductos" data-bs-slide="next">
+  
+  
+          {{-- ICONO Y MEDIOCIRCULO --}}
+          <span class="material-symbols-outlined botonCarrusel">
+            arrow_forward_ios
+            </span>
+            <div class="half-circle right">      
+            </div>
+           {{-- FIN ICONO Y MEDIOCIRCULO --}}
+  
+  
+                              <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  
       <div class="container bottom-0 end-0">
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
           <div class="col-md-4 d-flex align-items-center">

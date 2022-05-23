@@ -1,6 +1,6 @@
 
 body{
-    background-color: #eee !important;
+    background-color: rgb(250, 250, 250) !important;
     
 }
 .aboveHeader{
@@ -225,9 +225,9 @@ width: 25%;
 }
 
 .container1productoPic{
-    background-color: #00ADB5;
+    background-color: #fff;
     padding: 5%;
-    height: 65%;
+    height: 70%;
     width: 100%;
 }
 .container1producto:hover{
@@ -240,7 +240,7 @@ width: 25%;
 .container1productoPic > img{
     width: 100%; /* or any custom size */
     height: 100%; 
-    object-fit: contain;
+    object-fit: cover;
 }
 
 .container1productoPrice{
@@ -253,7 +253,7 @@ width: 25%;
     font-size: 1.5rem;
     padding: 7.5%;
     border-top: 1px solid rgb(179, 179, 179) ;
-    height: 35%;
+    height: 30%;
     width: 100%;
 }
 
