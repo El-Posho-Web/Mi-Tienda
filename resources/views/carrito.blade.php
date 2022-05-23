@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   @include('head')
+  <link rel="stylesheet" href="/css/carrito.css">
   <title>Mi Tienda</title>
 </head>
 <body>
@@ -14,8 +15,153 @@
       @include('header')
 
 
-      
-      @if (session()->has('productoagregado'))
+            {{-- guarda todos los elementos --}}
+      <div class="generalCont">
+            {{-- caja contenedora del nav --}}
+          <div class="carritoNav">
+            {{-- items del nav(carrito,guardados) --}}
+                  <div class="itemNav">
+                      <span>Carrito</span>
+                  </div>
+                  <div class="itemNav">
+                      <a href="#" style="text-decoration: none; color:black">Guardados</a>
+                  </div>
+          </div>
+
+          {{-- caja contenedora de los items del Carrito(productos en si) --}}
+          <div class="ItemsCont">
+
+                            {{-- AQUI EMPIEZA EL 1 ITEM HARDCODEADO --}}
+
+                <div class="itemCarrito">
+                  {{-- foto,nombre,cantidad,precio de producto --}}
+                        <div class="itemCarritoPicDesc">
+                          <div class="itemCarritoPic">
+                              <img src="https://via.placeholder.com/640x480.png/CCCCCC?text=" alt="">
+                          </div>
+                          <div class="itemCarritoDesc">
+                              <span>
+                                CAT B26 Dual SIM 8 MB negro 8 MB RAM a a a a a a a
+                              </span>
+                          </div>
+
+                          <div class="itemCarritoCantidad">
+                            <input type="number" name="cantidad" id="cantidad" class="inputStock" min="1" step="1" value="1">
+                            <span style="margin-left:2%; font-size:0.9rem; color:rgb(137, 137, 137)">(8 disponibles)</span>
+                          </div>
+                          <div class="itemCarritoPrecio">
+                            <span> $125</span>
+                          </div>
+                            
+                        </div>
+                              {{-- opciones de producto --}}
+                              <div class="itemOptions">
+                              
+                                <a href="" style="width: 8%">Eliminar</a>
+                                <a href="" style="width: 13%">Comprar ahora</a>
+                                <a href="" style="width: 30%">Ver mas productos de la categoria</a>
+
+                              </div>
+                </div>
+                {{-- AQUI TEERMINA EL 1 ITEM HARDCODEADO --}}
+          
+
+                <div class="itemCarrito">
+                  {{-- foto,nombre,cantidad,precio de producto --}}
+                        <div class="itemCarritoPicDesc">
+                          <div class="itemCarritoPic">
+                              <img src="https://via.placeholder.com/640x480.png/CCCCCC?text=" alt="">
+                          </div>
+                          <div class="itemCarritoDesc">
+                              <span>
+                                CAT B26 Dual SIM 8 MB negro 8 MB RAM a a a a a a a
+                              </span>
+                          </div>
+
+                          <div class="itemCarritoCantidad">
+                            <input type="number" name="cantidad" id="cantidad" class="inputStock" min="1" step="1" value="1">
+                            <span style="margin-left:2%; font-size:0.9rem; color:rgb(137, 137, 137)">(8 disponibles)</span>
+                          </div>
+                          <div class="itemCarritoPrecio">
+                            <span> $125</span>
+                          </div>
+                            
+                        </div>
+                              {{-- opciones de producto --}}
+                              <div class="itemOptions">
+                              
+                                <a href="" style="width: 8%">Eliminar</a>
+                                <a href="" style="width: 13%">Comprar ahora</a>
+                                <a href="" style="width: 30%">Ver mas productos de la categoria</a>
+
+                              </div>
+                </div>
+
+                <div class="itemCarrito">
+                  {{-- foto,nombre,cantidad,precio de producto --}}
+                        <div class="itemCarritoPicDesc">
+                          <div class="itemCarritoPic">
+                              <img src="https://via.placeholder.com/640x480.png/CCCCCC?text=" alt="">
+                          </div>
+                          <div class="itemCarritoDesc">
+                              <span>
+                                CAT B26 Dual SIM 8 MB negro 8 MB RAM a a a a a a a
+                              </span>
+                          </div>
+
+                          <div class="itemCarritoCantidad">
+                            <input type="number" name="cantidad" id="cantidad" class="inputStock" min="1" step="1" value="1">
+                            <span style="margin-left:2%; font-size:0.9rem; color:rgb(137, 137, 137)">(8 disponibles)</span>
+                          </div>
+                          <div class="itemCarritoPrecio">
+                            <span> $125</span>
+                          </div>
+                            
+                        </div>
+                              {{-- opciones de producto --}}
+                              <div class="itemOptions">
+                              
+                                <a href="" style="width: 8%">Eliminar</a>
+                                <a href="" style="width: 13%">Comprar ahora</a>
+                                <a href="" style="width: 30%">Ver mas productos de la categoria</a>
+
+                              </div>
+                </div>
+
+                <div class="sumario">
+                  {{-- DESTINO DE ENVIO --}}
+                  <div class="sumarioDestino">
+                      <span>Enviar a Aeropuerto Mal Paso 1359</span>
+                  </div>
+                  {{-- TOTAL CARRITO --}}
+                  <div class="sumarioPrecio">
+                    <div>
+                      <span>Total con envío</span>
+                    </div>
+                    <div>
+                      <span>$1360</span>
+                    </div>
+                  </div>
+
+                  {{-- BOTON REALIZAR COMPRA --}}
+
+                  <div class="sumarioBtn">
+                      <button>
+                        Realizar compra
+                      </button>
+                  </div>
+
+                </div>
+          </div>
+          
+      </div>
+
+
+
+
+
+
+     {{--  @if (session()->has('productoagregado'))
       <div class="alert alert-success alert-dismissible fade show" role="alert">
         {{ session('productoagregado') }}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -65,10 +211,12 @@
           <div class="container">
             <h1>No tienes productos en el carrito</h1>
           </div>
-      @endif
+      @endif --}}
 
       
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
 </body>
+@include('footer')
+
 </html>

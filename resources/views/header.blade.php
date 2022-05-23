@@ -14,16 +14,35 @@
 
         {{-- header --}}
         <div class="header">
-                <div class="insideHeader">
+                <div class="insideHeader" 
+                    @auth
+                    @else
+                    style="justify-content: start"
+                    @endauth>
+
                 <div class=" logoFull">
                     <div class="logoImg">
-                        <a href="/mi-tienda"><img src="/img/logo.png" alt="" height="45px" >  </a>
-                    
+                        <a href="/mi-tienda"><img src="/img/logo.png" alt="" height="45px" >  </a>     
                 </div>
 
                 <div class="logoLetras">
                     <span>miTienda</span>      
                 </div>
+                </div>
+
+                <div class="searchContainer"
+                @auth
+                @else
+                style="margin-left: 10%"
+                @endauth>
+              
+                <a href="" class="insideInput">
+                    <span class="material-symbols-outlined insideInput">
+                        search
+                        </span>
+                </a>
+                
+                    <input type="search" class="inputSearch" placeholder="Buscá aquí tus productos">
                 </div>
 
                 @auth
@@ -107,6 +126,23 @@
                 </a>
                 </div>
                 
+                @else
+                <div class="insideUHitemsGroup" style="width:20% ">
+                <div class="insideUHitem" style="width:60% !important">
+                    {{--  <span class="material-symbols-outlined" >
+                    local_shipping
+                    </span> --}}
+                    <a href="/mi-tienda/registro">Creá una cuenta</a>
+                </div>
+
+                <div class="insideUHitem" style="width:40% !important">
+                    {{--  <span class="material-symbols-outlined" >
+                    local_shipping
+                    </span> --}}
+                    <a href="/mi-tienda/login">Ingresá</a>
+                  </div>
+                 </div>
+
                 @endauth
 
             </div>

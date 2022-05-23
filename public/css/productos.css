@@ -58,7 +58,7 @@ overflow: hidden;
     
     font-size: 1.2rem;
     font-family: 'Roboto', sans-serif; 
-    
+    margin: 0;
     /* font-family: 'Open Sans', sans-serif; */
     /*  font-family: 'Comfortaa', cursive; */
 }
@@ -233,18 +233,5 @@ width: 100%;
     color: #016d73;
 
 }
-.input{
-    
-    background-color: #EEEEEE;
-    width: 30%;
-    border-radius: 3px;
-    box-shadow: 0px 1px 0px 0px #00ADB5 ;
-    padding: 4px 9px;
-    border: none;
-    border-bottom: solid 1px #00ADB5;
-    border-right: solid 1px #00ADB5 ;
-}
 
-.input:focus {
-    outline: none;
-}
+
