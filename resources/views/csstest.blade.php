@@ -29,78 +29,7 @@
 </head>
 <body>
 
-    {{-- arriba del header --}}
-    @auth
-    <div class="aboveHeader">
-        <div class="insideAboveHeader">
-                <div class="loginRegister"> 
-                    <a href="/mi-tienda/registro" style="font-size: 0.65rem">¡Registrate para empezar a comprar!</a>
-                </div>
-        </div>
-    </div> 
-    @endauth
-
-
-    {{-- header --}}
-    <div class="header">
-            <div class="insideHeader">
-              <div class=" logoFull">
-                <div class="logoImg">
-                  <img src="/img/logo.png" alt="" height="45px">  
-              </div>
-
-              <div class="logoLetras">
-                  <span>miTienda</span>      
-              </div>
-              </div>
-
-              <div class="logoutIcon">
-                <a href=""><span class="material-symbols-outlined">
-                  logout
-                  </span></a>
-              </div>
-         
-        </div>
-    </div>
-
-        {{-- debajo del header --}}
-    <div class="underHeader">
-        <div class="insideUnderHeader">
-            <div class="insideUHitem" style="width:16%">
-              <span class="material-symbols-outlined">
-                list
-                </span>
-                <a href="#">Todas las categorías</a>
-                <span class="material-symbols-outlined">
-                  expand_more
-                  </span>
-            </div>
-            <div class="insideUHitemsGroup">
-              <div class="insideUHitem" style="width:35% !important">
-                <span class="material-symbols-outlined">
-                  account_circle
-                  </span>
-                 <a href="#">Hernan</a>
-                 <span class="material-symbols-outlined">
-                  expand_more
-                  </span>
-             </div>
-              <div class="insideUHitem" style="width:35% !important">
-               {{--  <span class="material-symbols-outlined" >
-                  local_shipping
-                  </span> --}}
-                <a href="#">Mis pedidos</a>
-            </div>
-            <div class="insideUHitem" style="width:30% !important">
-              <span class="material-symbols-outlined" >
-                shopping_cart
-                </span>
-              <a href="#">2</a>
-          </div>
-            </div>
-           
-        </div>
-    </div>
+  @include('header')
 
     {{-- CARRUSEL PROMOS --}}
     <div class="carrusel">
@@ -147,7 +76,7 @@
                         {{-- productos de la pagina del carrusel --}}
                         <div class="container4productos">
                           @foreach ($chunk as $producto)
-                          <a href="" class="container1producto">
+                          <a href="/mi-tienda/producto/{{ $producto->id_producto }}" class="container1producto">
                             <div class="container1producto">
                               <div class="container1productoPic">
                                 <img src="https://via.placeholder.com/640x480.png/CCCCCC?text={{$categoria->nombre}}" alt="">
@@ -168,7 +97,7 @@
                         {{-- productos de la pagina del carrusel --}}
                         <div class="container4productos">
                           @foreach ($chunk as $producto)
-                          <a href="" class="container1producto">
+                          <a href="/mi-tienda/producto/{{ $producto->id_producto }}" class="container1producto">
                             <div class="container1producto">
                               <div class="container1productoPic">
                                 <img src="https://via.placeholder.com/640x480.png/CCCCCC?text={{$categoria->nombre}}" alt="">

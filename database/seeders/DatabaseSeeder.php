@@ -27,11 +27,11 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Categoria::factory()->create([
-            'nombre' => 'Alimentos'
+            'nombre' => 'Deportes'
         ]);
 
         Categoria::factory()->create([
-            'nombre' => 'Electro'
+            'nombre' => 'Tecnologia'
         ]);
 
         Categoria::factory()->create([
@@ -39,7 +39,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Categoria::factory()->create([
-            'nombre' => 'Herramientas'
+            'nombre' => 'Hogar'
         ]);
 
          \App\Models\User::factory(10)->create();
