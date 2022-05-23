@@ -150,6 +150,7 @@ class ProductoController extends Controller
         [
             'usuario' => auth()->user(),
             'carrito' => $this->vercarrito(),
+            'categorias' => Categoria::all()
         ]);
     }
 }

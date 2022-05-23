@@ -1,7 +1,7 @@
  {{-- arriba del header --}}
  <header>
         @auth
-
+        @else
         <div class="aboveHeader">
             <div class="insideAboveHeader">
                     <div class="loginRegister"> 
@@ -26,12 +26,18 @@
                 </div>
                 </div>
 
+                @auth
+
                 <div class="logoutIcon">
-                    <a href=""><span class="material-symbols-outlined">
-                    logout
-                    </span></a>
+                    <form action="/mi-tienda/logout" method="POST">
+                        @csrf
+                        <button type="submit" style="background-color:transparent; border:none; outline:none; color:#fff"><span class="material-symbols-outlined">
+                            logout
+                            </span></button>
+                    </form>
+                   
                 </div>
-            
+                @endauth
             </div>
         </div>
 
@@ -53,30 +59,56 @@
                     expand_more
                     </span>
                 </div>
+
+                @auth
                 <div class="insideUHitemsGroup">
+
+                  
+                        
+                    {{-- item USUARIO --}}
                 <div class="insideUHitem" style="width:35% !important">
                     <span class="material-symbols-outlined">
                     account_circle
                     </span>
-                    <a href="#">Hernan</a>
+                    <a href="#">{{$usuario->nombre}}</a>
                     <span class="material-symbols-outlined">
                     expand_more
                     </span>
-                </div>
+                  </div>
+                  
+
+                 {{-- item PEDIDOS --}}
+              
                 <div class="insideUHitem" style="width:35% !important">
                     {{--  <span class="material-symbols-outlined" >
                     local_shipping
                     </span> --}}
                     <a href="#">Mis pedidos</a>
                 </div>
-                <div class="insideUHitem" style="width:30% !important">
+            
+                 
+
+
+    
+
+
+                <a href="/mi-tienda/carrito" class="insideUHitem" style="text-decoration: none; width:30%; color:rgb(100, 100, 100)">
+                <div class="insideUHitem" style="width:100% !important; border:none !important;" >
                 <span class="material-symbols-outlined" >
                     shopping_cart
                     </span>
-                <a href="#">2</a>
-            </div>
+                   @if (session()->has('carrito'))
+                   {{count(session()->get('carrito'))}}
+
+                   @else
+                       0
+                   @endif
+                 </div>
+                </a>
                 </div>
                 
+                @endauth
+
             </div>
         </div>
 </header>

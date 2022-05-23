@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="/css/main.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  @include('head')
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
   <title>Registrarse</title>
@@ -15,18 +16,7 @@
 <body>
 
 
-<!-- header -->
-<div class="headerSignupContainer">
-      <div class="headerSignupContainerInside">
-        
-        <div class="headerSignupContainerInside-Left">
-          <img src="/img/avatar.png" alt="" height="60px">
-        </div>
-
-      </div>
-</div>
-<!-- header end -->
-
+@include('header')
   
 
 <div class="divBodySignup">

@@ -26,7 +26,7 @@
 
             {{-- contenedor de foto --}}
               <div class="prodContainerPic">
-                <img src="/img/celu.jpg"  alt="">
+                <img src="https://via.placeholder.com/1920x1080.png"  alt="">
               </div>
 
               {{-- contenedor de info --}}
@@ -93,18 +93,23 @@
             <div class="carritoStockYcompra">
               <p class="disponible">¡Stock Disponible!</p>
               <div class="carritostock">
-                <span>Cantidad:</span> <input type="number" name="" id="" class="input">
-                <span style="margin-left:2%; font-size:0.85rem; color:rgb(137, 137, 137)">(40 disponibles)</span>
+
+                <form action="/mi-tienda/carrito/agregar/{{$producto->id_producto}}" method="POST">
+                  @csrf
+                <span>Cantidad:</span> <input type="number" name="cantidad" id="cantidad" class="input" min="1" step="1" max="{{$producto->stock}}" value="1">
+                <span style="margin-left:2%; font-size:0.75rem; color:rgb(137, 137, 137)">({{$producto->stock}} disponibles)</span>
               </div>
               <div class="carritocompra">
                 <button>
                     Comprar
                 </button>
 
-                <button>
-Agregar al carrito
+                <button type="submit">
+                      Agregar al carrito
                 </button>
               </div>
+
+              </form>
             </div>
           </div>
 

@@ -21,13 +21,14 @@ overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 4%;
+    padding: 2%;
     height: 100%;
     width: 55%;
     
 }
 
 .prodContainerPic img{
+    overflow: hidden;
     height: 100%;
     object-fit: contain;
     

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categoria;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -9,7 +10,9 @@ class RegistroController extends Controller
 {
     public function crear()
     {
-        return view('registro');
+        return view('registro', [
+            'categorias' => Categoria::all()
+        ]);
     }
 
     public function guardar()
