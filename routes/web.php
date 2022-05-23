@@ -18,9 +18,7 @@ use App\Http\Controllers\AdminController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-route ::get('/test', function()
-
-{
+route ::get('/test', function() {
    return view('csstest'); 
 });
 
@@ -29,7 +27,6 @@ Route::get('/', function () {
 });
 
 Route::get('mi-tienda', function(){
-    info(session()->all());
     return view('csstest', [
         'usuario' => Auth::user(),
         'categorias' => Categoria::with('productos')->get()
@@ -37,11 +34,10 @@ Route::get('mi-tienda', function(){
 });
 
 Route::get('mi-tienda/categoria/{categoria:nombre}', function(Categoria $categoria){
-    return view('index', [
-        'productos' => $categoria->productos, 
-        'usuario' => Auth::user(),
-        'categorias' => Categoria::all()
-    ]);
+    return view('productos', [
+        'productos' => Producto::where('id_categoria', $categoria->id_categoria)->paginate(10), 
+        'usuario' => Auth::user()
+    ]); 
 });
 
 Route::get('mi-tienda/carrito', [ProductoController::class, 'carrito'])->middleware('auth');

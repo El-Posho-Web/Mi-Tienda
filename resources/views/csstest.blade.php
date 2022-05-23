@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
      {{-- owncss --}}
-     <link rel="stylesheet" href="css/test.css">
+     <link rel="stylesheet" href="/css/test.css">
 
     {{-- bootstrap --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
@@ -70,7 +70,13 @@
               <span class="material-symbols-outlined">
                 list
                 </span>
-                <a href="#">Todas las categorías</a>
+                <a href="#" role="button" id="dropdownMenuCategorias" data-bs-toggle="dropdown" aria-expanded="false">Todas las categorías</a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  @foreach ($categorias as $categoria)
+                  <li><a class="dropdown-item" href="/mi-tienda/categoria/{{$categoria->nombre}}">{{$categoria->nombre}}</a></li>                     
+                  @endforeach
+
+                </ul>
                 <span class="material-symbols-outlined">
                   expand_more
                   </span>
@@ -107,13 +113,13 @@
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img src="img/offer3.jpg" class="d-block w-100 carruselitem" alt="..." >
+                <img src="/img/offer3.jpg" class="d-block w-100 carruselitem" alt="..." >
               </div>
               <div class="carousel-item">
-                <img src="img/offer3.jpg" class="d-block w-100 carruselitem" alt="...">
+                <img src="/img/offer3.jpg" class="d-block w-100 carruselitem" alt="...">
               </div>
               <div class="carousel-item">
-                <img src="img/offer3.jpg" class="d-block w-100 carruselitem" alt="..." >
+                <img src="/img/offer3.jpg" class="d-block w-100 carruselitem" alt="..." >
               </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
