@@ -190,6 +190,10 @@ height: 65%;
     font-size: 1.2rem;
     color: #007600;
 }
+.NoDisponible{
+    font-size: 1.2rem;
+    color: #570909;
+}
 
 .carritocompra{
     display: flex;
@@ -234,4 +238,17 @@ width: 100%;
 
 }
 
+.separador{
+    margin-top: 2%;
+    padding-left: 5%;
+    padding-right: 5%;
 
+    height: 4vh;
+    width: 100%;
+} 
+.separador span{
+    font-weight: bold;
+    color: black;
+    font-size: 1.4rem;
+    font-family: 'Open Sans', sans-serif; 
+}

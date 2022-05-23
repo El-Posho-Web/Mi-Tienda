@@ -5,11 +5,10 @@ body{
     display: flex;
     width: 95%;
     background-color: #fff;
-    height: 150vh;
     margin:auto;
     margin-top: 2.5%;
-    border: 1.5px solid rgb(255, 224, 224);
-     box-shadow: -0.5px -0.5px 1px  rgb(250, 224, 224) ;
+     border: 1.5px solid rgb(255, 224, 224);
+     box-shadow: -0.5px -0.5px 1px  rgb(250, 224, 224) ; 
     border-radius: 6px;
     overflow: hidden;
     padding-left: 5%;
@@ -19,7 +18,7 @@ body{
 
 .carritoNav{
     width: 100%;
-    height: 13%;
+    height: 20vh;
     display: flex;
     
     padding-top: 1.5%;
@@ -50,7 +49,7 @@ border-bottom: 2px solid #00ADB5;
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 85%;
+    
 }
 
 .itemCarrito{
@@ -58,21 +57,21 @@ border-bottom: 2px solid #00ADB5;
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 22%;
-    padding-top: 3.5%;
-    padding-bottom: 3.5%;
+    height: 25vh;
+    padding-top: 3%;
+    padding-bottom: 3%;
     border-bottom: 1px solid rgb(255, 221, 221);}
 
 
 .itemCarritoPicDesc{
     display: flex;
-    height: 70%;
+    height: 65%;
     width: 100%;
     align-items: start;
 }
 .itemCarritoPic{
     width: 6%;
-    height: 70%;
+    height: 95%;
     padding-right: 7%;
     overflow: hidden;
 
@@ -161,7 +160,6 @@ font-weight: bold;
     height: 22%;
     padding-top: 3.5%;
     padding-bottom: 3.5%;
-    border-bottom: 1px solid rgb(255, 221, 221);
     align-items: flex-end;
 }
 

@@ -8,8 +8,8 @@
     @include('head')
 
     
-  
-    <title>producto</title>
+  {{-- poner el nombre de producto real --}}
+    <title>Producto</title>
 </head>
 
 
@@ -91,6 +91,8 @@
           
 
             <div class="carritoStockYcompra">
+
+              {{-- HACER UN IF dentro de la clase, LA CLASE "disponible" pone la letra en verde, la clase NO disponible la pone en rojo. --}}
               <p class="disponible">¡Stock Disponible!</p>
               <div class="carritostock">
 
@@ -117,7 +119,11 @@
 
     </div>
 
-    
+    <div class="separador">
+        <span>
+          Mas articulos de la misma categoría
+        </span>
+    </div>
    
     <div class="containerAllProductos">
       <div id="carruselProductos" class="carousel slide" data-bs-ride="carousel">

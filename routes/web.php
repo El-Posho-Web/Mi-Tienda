@@ -36,7 +36,9 @@ Route::get('mi-tienda', function(){
 Route::get('mi-tienda/categoria/{categoria:nombre}', function(Categoria $categoria){
     return view('productos', [
         'productos' => Producto::where('id_categoria', $categoria->id_categoria)->paginate(10), 
-        'usuario' => Auth::user()
+        'usuario' => Auth::user(),
+        'categorias' => Categoria::all()
+
     ]); 
 });
 

@@ -1,0 +1,142 @@
+body{
+    background-color: #eee !important;
+    
+}
+.base{
+    display: flex;
+    justify-content: space-evenly;
+}
+.filtersContainer{
+    padding-top: 3%;
+    padding-bottom: 3%;
+
+    margin-top: 1%;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    width: 18%;
+}
+
+.filtersItems{
+
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+    width: 100%;
+   
+    
+}
+.filtersItems h2{
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2rem;
+    text-decoration: none;
+    margin-bottom: 10%;
+}
+
+.filtersItems a{
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.9rem;
+    text-decoration: none;
+   
+    
+}
+.allElementsContainer{
+   
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    background-color: transparent;
+    padding-top: 3%;
+    padding-bottom: 3%;
+   
+    margin-top: 1%;
+    /* border: 1.5px solid rgb(255, 224, 224);
+     box-shadow: -0.5px -0.5px 1px  rgb(250, 224, 224) ;
+    border-radius: 6px; */
+    
+}
+
+.allElementsContainer a{
+    color: black;
+    text-decoration: none;
+}
+.allElementsContainer a:hover{
+    text-decoration: none;
+}
+
+
+
+.ItemCont{
+    margin-bottom: 0.2%;
+    display: flex;
+    width: 100%;
+    height:30vh;
+    padding-left: 1.5%;
+    padding-right: 1.5%;
+
+    padding-top: 2%;
+    padding-bottom: 2%;
+/*     border-bottom: 1px solid rgb(255, 221, 221);
+ */    background-color: rgb(255, 255, 255);
+}
+
+/* .ItemCont:first-of-type{
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+} */
+
+.ItemContPic{
+    overflow: hidden;
+    
+    height: 100%;
+    width: 15%;
+   
+
+}
+.ItemContPic img{
+    height: 80%;
+    object-fit: cover;
+    
+    
+
+}
+
+
+
+
+.ItemContDesc{
+    height: 100%;
+    width: 85%;
+    
+
+}
+
+.itemDescNombre{
+    height: 20%;
+    width: 100%;
+}
+
+
+.itemDescNombre h1{
+    margin: 0;
+    padding-left: 1%;
+    color: black  ;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.4rem; 
+
+}
+.itemDescPrecio{
+    height: 28%;
+    width: 100%;
+}
+
+.itemDescPrecio span{
+    padding-left: 1%;
+    color: black  ;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.7rem; 
+    
+
+}
