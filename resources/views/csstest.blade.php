@@ -25,7 +25,11 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>prueba</title>
+
+
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+
+    <title>Inicio</title>
 </head>
 <body>
 
@@ -65,8 +69,8 @@
         $i = 0;
     @endphp
     @foreach ($categorias as $categoria)
-      <div class="bannerCategoria bannerCategoria{{ $categoria->nombre }}" style="margin-top:3%">            
-      </div>
+      <a href="/mi-tienda/categoria/{{ $categoria->nombre }}"><div class="bannerCategoria bannerCategoria{{ $categoria->nombre }}" style="margin-top:3%">            
+      </div></a>
       <div class="containerAllProductos">
             <div id="carruselProductos{{$i}}" class="carousel slide" data-bs-ride="carousel">
               <div id="innerCarruselProd" class="carousel-inner">

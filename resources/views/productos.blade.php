@@ -22,10 +22,12 @@
     <div class="filtersContainer">
         <div class="filtersItems">
 
-          <H2>Sub Categorias</H2>
-            <a href="">Subcategoria 1</a>
-            <a href="">Subcategoria 1</a>
-            <a href="">Subcategoria 1</a>
+          <H2>Categorias</H2>
+            <a href="">Subcategoria 1 (40)</a>
+            <a href="">Subcategoria 2 (340)</a>
+            <a href="">Subcategoria 3 (10)</a>
+            <a href="">Subcategoria 4 (120)</a>
+            <a href="">Subcategoria 5 (140)</a>
             
         </div>
     </div>
