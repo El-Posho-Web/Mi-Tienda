@@ -1,6 +1,6 @@
 
 body{
-    background-color: rgb(250, 250, 250) !important;
+    background-color: #EEEEEE !important;
     
 }
 .aboveHeader{
@@ -228,7 +228,7 @@ width: 25%;
   
     height: 360px;
 /*     width:23% ;
- */    border:   1px solid rgb(180, 180, 180);
+ */    border:   1px solid rgb(232, 232, 232);
     ;
 }
 
@@ -386,6 +386,7 @@ border-radius: 5px;
     padding: 4px 9px;
     padding-right: 40px;
     border: none;
+    border-radius: 8px;
     /* border-bottom: solid 1px #00ADB5;
     border-right: solid 1px #00ADB5 ; */
     
