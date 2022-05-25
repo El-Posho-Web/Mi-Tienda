@@ -27,7 +27,7 @@ Route::get('/', function () {
 });
 
 Route::get('mi-tienda', function(){
-    return view('csstest', [
+    return view('index', [
         'usuario' => Auth::user(),
         'categorias' => Categoria::with('productos')->get()
     ]);
