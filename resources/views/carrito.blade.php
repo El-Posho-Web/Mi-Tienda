@@ -63,7 +63,7 @@
                       </div>
 
                       <div class="itemCarritoCantidad">
-                        <input type="number" name="cantidad" id="cantidad" class="inputStock" min="1" step="1" value="1" disabled>
+                        <input type="number" name="cantidad" id="cantidad" class="inputStock" min="1" step="1" value="{{$producto['cantidad']}}" disabled>
                         {{-- <span style="margin-left:2%; font-size:0.9rem; color:rgb(137, 137, 137)">({{$producto['cantidad']}} disponibles)</span> --}}
                       </div>
                       <div class="itemCarritoPrecio">
