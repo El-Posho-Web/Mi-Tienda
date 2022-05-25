@@ -34,11 +34,11 @@
                 <div class="prodContainerInfo-Title">
                      <p style="margin: 0px; color:rgb(160, 160, 160); font-size:0.8rem">1000 vendidos</p>
                       <h1>          
-                        CAT B26 Dual SIM 8 MB negro 8 MB RAM a a a a a a a
+                        {{$producto->nombre}}
                       </h1>
                 </div>
                <div class="prodContainerInfo-Price">
-                 <span>$14.500</span>
+                 <span>${{$producto->precio_unitario}}</span>
                  <p class="text-muted" style="font-size: 0.7rem; margin:0;">Todos los precios están expresados en pesos argentinos.</p>
                 <a href="">Ver los medios de pago</a>
                </div>
@@ -46,18 +46,7 @@
                  <h3>Lo que tenés que saber de este producto</h3>
                  
                  <br><p>
-                  Con tecnología 3D NAND.
-                  Útil para guardar programas y documentos con su capacidad de 240 GB.
-                  Resistente a fuertes golpes.
-                  Tamaño de 2.5 ".
- Con tecnología 3D NAND.
-                  Útil para guardar programas y documentos con su capacidad de 240 GB.
-                  Resistente a fuertes golpes.
-                  Tamaño de 2.5 ".
-       Con tecnología 3D NAND.
-                  Útil para guardar programas y documentos con su capacidad de 240 GB.
-                  Resistente a fuertes golpes.
-                  Tamaño de 2.5 ".
+                  {{$producto->descripcion}}
       
                  </p>
                </div>
@@ -84,35 +73,66 @@
             </div>
 
             <div class="carritoShippingLugar">
-               <span>Enviar a 1074 Kuhlman Park</span>
+              @auth  
+                <span>{{$usuario->domicilio}}</span>
+              @else
+                <span>Tu direccion</span>
+              @endauth
             </div>
 
         </div>
+        @if ($producto->stock === 0)
+        <div class="carritoStockYcompra">
+
+          {{-- HACER UN IF dentro de la clase, LA CLASE "disponible" pone la letra en verde, la clase NO disponible la pone en rojo. --}}
+          <p class="disponible">Lo sentimos, no hay stock disponible</p>
+          <div class="carritostock">
+
+            <form action="/mi-tienda/carrito/agregar/{{$producto->id_producto}}" method="POST">
+              @csrf
+            <span>Cantidad:</span> <input type="number" name="cantidad" id="cantidad" class="input" min="1" step="1" max="{{$producto->stock}}" value="0" disabled>
+            <span style="margin-left:2%; font-size:0.75rem; color:rgb(137, 137, 137)">({{$producto->stock}} disponibles)</span>
+          </div>
+          <div class="carritocompra">
+            <button disabled>
+                Comprar
+            </button>
+
+            <button type="submit" disabled>
+                  Agregar al carrito
+            </button>
+          </div>
+
+          </form>
+        </div>
+        @else
+        <div class="carritoStockYcompra">
+
+          {{-- HACER UN IF dentro de la clase, LA CLASE "disponible" pone la letra en verde, la clase NO disponible la pone en rojo. --}}
+          <p class="disponible">¡Stock Disponible!</p>
+          <div class="carritostock">
+
+            <form action="/mi-tienda/carrito/agregar/{{$producto->id_producto}}" method="POST">
+              @csrf
+            <span>Cantidad:</span> <input type="number" name="cantidad" id="cantidad" class="input" min="1" step="1" max="{{$producto->stock}}" value="1">
+            <span style="margin-left:2%; font-size:0.75rem; color:rgb(137, 137, 137)">({{$producto->stock}} disponibles)</span>
+          </div>
+          <div class="carritocompra">
+            <button>
+                Comprar
+            </button>
+
+            <button type="submit">
+                  Agregar al carrito
+            </button>
+          </div>
+
+          </form>
+        </div>
+        @endif
           
 
-            <div class="carritoStockYcompra">
 
-              {{-- HACER UN IF dentro de la clase, LA CLASE "disponible" pone la letra en verde, la clase NO disponible la pone en rojo. --}}
-              <p class="disponible">¡Stock Disponible!</p>
-              <div class="carritostock">
-
-                <form action="/mi-tienda/carrito/agregar/{{$producto->id_producto}}" method="POST">
-                  @csrf
-                <span>Cantidad:</span> <input type="number" name="cantidad" id="cantidad" class="input" min="1" step="1" max="{{$producto->stock}}" value="1">
-                <span style="margin-left:2%; font-size:0.75rem; color:rgb(137, 137, 137)">({{$producto->stock}} disponibles)</span>
-              </div>
-              <div class="carritocompra">
-                <button>
-                    Comprar
-                </button>
-
-                <button type="submit">
-                      Agregar al carrito
-                </button>
-              </div>
-
-              </form>
-            </div>
           </div>
 
       </div>
