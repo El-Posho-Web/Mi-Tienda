@@ -145,12 +145,14 @@ font-weight: bold;
     height: 20%;
 }
 
-.itemOptions a{
+.itemOptions button{
     font-family: 'Roboto', sans-serif;
     font-weight: lighter;
     text-decoration: none;
     font-size: 0.95rem;
     color: #00ADB5;
+    border: none;
+    background-color: transparent;
 }
 
 .sumario{
@@ -198,7 +200,7 @@ font-weight: bold;
     width: 25%;
 }
 
-.sumarioBtn button{
+.sumarioBtn a{
     width: 100%;
     
     border: none;

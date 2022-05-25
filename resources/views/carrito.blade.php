@@ -14,6 +14,21 @@
       
       @include('header')
 
+      @if (session()->has('productoagregado'))
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ session('productoagregado') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      @endif
+      
+      @if (session()->has('productoeliminado'))
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        {{ session('productoeliminado') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      @endif
+
+
 
             {{-- guarda todos los elementos --}}
       <div class="generalCont">
@@ -30,128 +45,74 @@
 
           {{-- caja contenedora de los items del Carrito(productos en si) --}}
           <div class="ItemsCont">
+            @php
+            $total = 0;
+            @endphp
+            @if (session()->has('carrito'))
+            @foreach ($carrito as $id => $producto)
+            <div class="itemCarrito">
+              {{-- foto,nombre,cantidad,precio de producto --}}
+                    <div class="itemCarritoPicDesc">
+                      <div class="itemCarritoPic">
+                          <img src="https://via.placeholder.com/640x480.png/CCCCCC?text=" alt="">
+                      </div>
+                      <div class="itemCarritoDesc">
+                          <span>
+                            {{$producto['nombre']}}
+                          </span>
+                      </div>
 
-                            {{-- AQUI EMPIEZA EL 1 ITEM HARDCODEADO --}}
-
-                <div class="itemCarrito">
-                  {{-- foto,nombre,cantidad,precio de producto --}}
-                        <div class="itemCarritoPicDesc">
-                          <div class="itemCarritoPic">
-                              <img src="https://via.placeholder.com/640x480.png/CCCCCC?text=" alt="">
-                          </div>
-                          <div class="itemCarritoDesc">
-                              <span>
-                                CAT B26 Dual SIM 8 MB negro 8 MB RAM a a a a a a a
-                              </span>
-                          </div>
-
-                          <div class="itemCarritoCantidad">
-                            <input type="number" name="cantidad" id="cantidad" class="inputStock" min="1" step="1" value="1">
-                            <span style="margin-left:2%; font-size:0.9rem; color:rgb(137, 137, 137)">(8 disponibles)</span>
-                          </div>
-                          <div class="itemCarritoPrecio">
-                            <span> $125</span>
-                          </div>
-                            
-                        </div>
-                              {{-- opciones de producto --}}
-                              <div class="itemOptions">
-                              
-                                <a href="" style="width: 8%">Eliminar</a>
-                                <a href="" style="width: 13%">Comprar ahora</a>
-                                <a href="" style="width: 30%">Ver mas productos de la categoria</a>
-
-                              </div>
-                </div>
-                {{-- AQUI TEERMINA EL 1 ITEM HARDCODEADO --}}
-          
-
-                <div class="itemCarrito">
-                  {{-- foto,nombre,cantidad,precio de producto --}}
-                        <div class="itemCarritoPicDesc">
-                          <div class="itemCarritoPic">
-                              <img src="https://via.placeholder.com/640x480.png/CCCCCC?text=" alt="">
-                          </div>
-                          <div class="itemCarritoDesc">
-                              <span>
-                                CAT B26 Dual SIM 8 MB negro 8 MB RAM a a a a a a a
-                              </span>
-                          </div>
-
-                          <div class="itemCarritoCantidad">
-                            <input type="number" name="cantidad" id="cantidad" class="inputStock" min="1" step="1" value="1">
-                            <span style="margin-left:2%; font-size:0.9rem; color:rgb(137, 137, 137)">(8 disponibles)</span>
-                          </div>
-                          <div class="itemCarritoPrecio">
-                            <span> $125</span>
-                          </div>
-                            
-                        </div>
-                              {{-- opciones de producto --}}
-                              <div class="itemOptions">
-                              
-                                <a href="" style="width: 8%">Eliminar</a>
-                                <a href="" style="width: 13%">Comprar ahora</a>
-                                <a href="" style="width: 30%">Ver mas productos de la categoria</a>
-
-                              </div>
-                </div>
-
-                <div class="itemCarrito">
-                  {{-- foto,nombre,cantidad,precio de producto --}}
-                        <div class="itemCarritoPicDesc">
-                          <div class="itemCarritoPic">
-                              <img src="https://via.placeholder.com/640x480.png/CCCCCC?text=" alt="">
-                          </div>
-                          <div class="itemCarritoDesc">
-                              <span>
-                                CAT B26 Dual SIM 8 MB negro 8 MB RAM a a a a a a a
-                              </span>
-                          </div>
-
-                          <div class="itemCarritoCantidad">
-                            <input type="number" name="cantidad" id="cantidad" class="inputStock" min="1" step="1" value="1">
-                            <span style="margin-left:2%; font-size:0.9rem; color:rgb(137, 137, 137)">(8 disponibles)</span>
-                          </div>
-                          <div class="itemCarritoPrecio">
-                            <span> $125</span>
-                          </div>
-                            
-                        </div>
-                              {{-- opciones de producto --}}
-                              <div class="itemOptions">
-                              
-                                <a href="" style="width: 8%">Eliminar</a>
-                                <a href="" style="width: 13%">Comprar ahora</a>
-                                <a href="" style="width: 30%">Ver mas productos de la categoria</a>
-
-                              </div>
-                </div>
-
-                <div class="sumario">
-                  {{-- DESTINO DE ENVIO --}}
-                  <div class="sumarioDestino">
-                      <span>Enviar a Aeropuerto Mal Paso 1359</span>
-                  </div>
-                  {{-- TOTAL CARRITO --}}
-                  <div class="sumarioPrecio">
-                    <div>
-                      <span>Total con envío</span>
+                      <div class="itemCarritoCantidad">
+                        <input type="number" name="cantidad" id="cantidad" class="inputStock" min="1" step="1" value="1" disabled>
+                        {{-- <span style="margin-left:2%; font-size:0.9rem; color:rgb(137, 137, 137)">({{$producto['cantidad']}} disponibles)</span> --}}
+                      </div>
+                      <div class="itemCarritoPrecio">
+                        <span> ${{$producto['total']}}</span>
+                      </div>
+                        
                     </div>
-                    <div>
-                      <span>$1360</span>
-                    </div>
-                  </div>
+                          {{-- opciones de producto --}}
+                          <div class="itemOptions">
+                          
+                            <form method="POST" action="/mi-tienda/carrito/eliminar">@csrf  <input type="hidden" name="id_producto" id="id_producto" value="{{$id}}"><button>Eliminar</button></form>
+                            {{-- <a href="" style="width: 13%">Comprar ahora</a> --}}
+                            {{-- <a href="" style="width: 30%">Ver mas productos de la categoria</a> --}}
 
-                  {{-- BOTON REALIZAR COMPRA --}}
-
-                  <div class="sumarioBtn">
-                      <button>
-                        Realizar compra
-                      </button>
-                  </div>
-
+                          </div>
+            </div>
+            {{-- AQUI TEERMINA EL ITEM HARDCODEADO --}}
+            @php
+            $total = $total + $producto['total'];
+            @endphp
+            @endforeach
+            <div class="sumario">
+              {{-- DESTINO DE ENVIO --}}
+              <div class="sumarioDestino">
+                  <span>Enviar a {{$usuario->domicilio}}</span>
+              </div>
+              {{-- TOTAL CARRITO --}}
+              <div class="sumarioPrecio">
+                <div>
+                  <span>Total con envío</span>
                 </div>
+                <div>
+                  <span>${{$total}}</span>
+                </div>
+              </div>
+
+              {{-- BOTON REALIZAR COMPRA --}}
+
+              <div class="sumarioBtn">
+                <a href="/mi-tienda/carrito/confirmar" class="btn">Realizar compra</a>
+              </div>
+
+            </div>
+            @else
+            <div class="itemCarrito">
+              <h2>No tienes productos en el carrito</h2>
+            </div>
+            @endif
+
           </div>
           
       </div>
