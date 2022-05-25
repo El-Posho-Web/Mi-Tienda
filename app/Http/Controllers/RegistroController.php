@@ -21,7 +21,7 @@ class RegistroController extends Controller
         $atributos = request()->validate([
             'nombre' => 'required|max:30',
             'apellido' => 'required|max:30',
-            'email' => 'required|email|max:30|unique:users,email',
+            'email' => 'required|email|max:50|unique:users,email',
             'password' => 'required|min:8|max:255',
             'dni' => 'required|numeric',
             'domicilio' => 'required|max:50'
