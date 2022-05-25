@@ -102,7 +102,7 @@
                     {{--  <span class="material-symbols-outlined" >
                     local_shipping
                     </span> --}}
-                    <a href="#">Mis pedidos</a>
+                    <a href="/mi-tienda/mis-pedidos">Mis pedidos</a>
                 </div>
             
                  

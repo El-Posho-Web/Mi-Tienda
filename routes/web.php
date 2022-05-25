@@ -4,9 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegistroController;
 use App\Http\Controllers\SesionController;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\EnvioController;
 use App\Models\Producto;
 use App\Models\Categoria;
-use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +52,8 @@ Route::post('mi-tienda/carrito/eliminar', [ProductoController::class, 'eliminar'
 Route::get('mi-tienda/producto/{producto}', [ProductoController::class, 'producto']);
 
 Route::get('mi-tienda/carrito/confirmar', [ProductoController::class, 'confirmar'])->middleware('auth');
+
+Route::get('mi-tienda/mis-pedidos', [EnvioController::class, 'envio'])->middleware('auth');
 
 Route::get('mi-tienda/login', [SesionController::class, 'crear'])->middleware('guest');
 
