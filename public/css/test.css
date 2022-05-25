@@ -86,16 +86,17 @@ body{
     color: #9b9d9f;
 }
 .insideUHitem{
+    
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     transition: border-color 1.5s;
+    border-bottom: 2px solid #fff ;
 }
  .insideUHitem:hover{
     
-    border-bottom: 2px solid #656a71 ;
-    border-color: rgb(129, 126, 126);
+    border-color: #3e3e3e;
 
  }
 
@@ -106,13 +107,6 @@ body{
     transition: color 1.5s;
 
 }
-
- .insideUHitem:hover span{
-    color:#656a71;
-
- }
-
- 
 .insideUHitem a {
     
     text-decoration: none;
@@ -121,13 +115,22 @@ body{
 
 }
 
+ .insideUHitem:hover span{
+    color:#3e3e3e;
 
-.insideUHitem a:hover{
+ }
+ .insideUHitem a:hover{
 
-    color:#656a71;
+    color:#3e3e3e;
 
 
 }
+
+ 
+
+
+
+
 
 .insideUHitemsGroup{
 display: flex;
@@ -180,11 +183,17 @@ width: 25%;
 }
 
 .carrusel{
+/*     overflow: hidden !important;
+ */    /* border-radius: 10px; */
     margin:auto;
     width: 90%;
     margin-top: 2.5%;
     margin-bottom: -2%;
     height: 40vh;
+}
+#bordering{
+    border-radius: 10px;
+    overflow: hidden !important;
 }
 
 .carruselitem{
@@ -230,7 +239,17 @@ width: 25%;
 /*     width:23% ;
  */    border:   1px solid rgb(232, 232, 232);
     ;
+    transition: all 0.6s;
 }
+
+.container1producto span{
+    visibility: hidden;
+ }
+.container1producto:hover span{
+   visibility: visible;
+}
+
+
 
 .container1productoPic{
     background-color: #fff;
@@ -260,10 +279,12 @@ width: 25%;
     font-weight: 300;
     font-size: 1.5rem;
     padding: 7.5%;
-    border-top: 1px solid rgb(179, 179, 179) ;
+    border-top: 1px solid rgb(241, 220, 220) ;
     height: 30%;
     width: 100%;
 }
+
+
 
 .productName{
     font-family: 'Roboto', sans-serif;
@@ -420,4 +441,50 @@ input[type="search"]::::-webkit-search-results-decoration {
 }
 .inputSearch:focus {
     outline: none;
+}
+
+.bodyFooter{
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-left: 3%;
+    padding-right: 3%;
+    margin-top: 3%;
+    height: 25vh;
+    width: 100%;
+    background-color: #00ADB5;
+    box-shadow: 0px -1px 2px 2px rgb(252, 215, 215);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.bodyFooter a{
+    margin-right: 2%;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    text-decoration: none;
+
+}
+
+.bodyFooter span{
+    margin-top: -3%;
+    margin-right: 2%;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    text-decoration: none;
+
+}
+
+.bodyFooter a:hover{
+    
+    color: rgb(224, 224, 224);
+    
+
+}
+
+.redesSociales img{
+    height: 14px;
+    
 }

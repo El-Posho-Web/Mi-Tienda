@@ -38,9 +38,9 @@
     {{-- CARRUSEL PROMOS --}}
     <div class="carrusel">
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
+            <div class="carousel-inner" id="bordering">
               <div class="carousel-item active">
-                <img src="/img/promos/offer1.jpg" class="d-block w-100 carruselitem" style="object-fit:contain;" alt="..." >
+                <img src="/img/promos/offer1.jpg" class="d-block w-100 carruselitem" style="object-fit:cover;" alt="..." >
               </div>
               <div class="carousel-item">
                 <img src="/img/promos/offer2.jpg" class="d-block w-100 carruselitem" style="object-fit:cover;" alt="...">
