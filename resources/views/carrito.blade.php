@@ -115,66 +115,7 @@
 
           </div>
           
-      </div>
-
-
-
-
-
-
-     {{--  @if (session()->has('productoagregado'))
-      <div class="alert alert-success alert-dismissible fade show" role="alert">
-        {{ session('productoagregado') }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-      @endif
-      
-      @if (session()->has('productoeliminado'))
-      <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        {{ session('productoeliminado') }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-      @endif
-      @php
-          $total = 0;
-      @endphp
-      @if (session()->has('carrito'))
-          <div class="container">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col">Nombre</th>
-                  <th scope="col">Descripcion</th>
-                  <th scope="col">Cantidad</th>
-                  <th scope="col">Precio</th>
-                  <th scope="col">Acciones</th>
-                </tr>
-              </thead>
-              <tbody>
-                @foreach ($carrito as $producto => $valor)
-                <tr>
-                  <td>{{ $valor['nombre'] }}</td>
-                  <td>{{ $valor['descripcion'] }}</td>
-                  <td>{{ $valor['cantidad'] }}</td>
-                  <td>{{ $valor['total'] }}</td>
-                  <td><form method="POST" action="/mi-tienda/carrito/eliminar">@csrf  <input type="hidden" name="id_producto" id="id_producto" value="{{$producto}}"><button class="btn">Eliminar</button></form></td>
-                </tr>
-                @php
-                    $total = $total + $valor['total'];
-                @endphp
-                @endforeach
-                <td colspan="4">Total: ${{ $total }}</td>
-                <td><a href="/mi-tienda/carrito/confirmar" class="btn">Finalizar compra</a></td>
-              </tbody>
-            </table>
-          </div>
-      @else
-          <div class="container">
-            <h1>No tienes productos en el carrito</h1>
-          </div>
-      @endif --}}
-
-      
+      </div>      
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
 </body>
