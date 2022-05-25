@@ -1,0 +1,186 @@
+body{
+    background-color: #eeeeee;
+}
+
+.header{
+    height: 30vh;
+    background-color: #00ADB5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+.tituloHeader{
+    padding: 3%;
+    font-size: 3rem;
+    font-family: 'Roboto Slab', serif;
+    color: white;
+    
+}
+
+.tituloActionHeader{
+    padding: 3%;
+    font-size: 1.3rem;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 300;
+    color: black;
+    
+}
+.tituloActionHeader p{
+    margin: 0%;
+  
+}
+.actionHeader{
+    height: 8vh;
+    background-color: #EEEEEE;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 3%;
+}
+
+
+.inputContainers{
+    display: flex;
+    flex-direction: column;
+    height: 40vh;
+  
+}
+.inputSignup{
+
+    background-color: #EEEEEE;
+    width: 100%;
+    border-radius: 3px;
+    box-shadow: 0px 1px 0px 0px #00ADB5 ;
+    padding: 12px 22px;
+    border: none;
+    border-bottom: solid 2px #00ADB5;
+    border-right: solid 1px #00ADB5 ;
+}
+
+.divInputPlusLabelHalfed :focus{
+    text-decoration: none;
+    outline: none;
+   
+}
+.divInputPlusLabelThreeParts :focus{
+    text-decoration: none;
+    outline: none;
+   
+}
+
+
+.div2InputsContainer{
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+
+.divInputPlusLabelHalfed{
+    margin-bottom: 2%;
+    width: 45%;
+}
+.divInputPlusLabelThreeParts{
+    margin-bottom: 2%;
+    width: 30%;
+}
+.divInputPlusLabel{
+    margin-bottom: 2%;
+    width: 90%;
+    padding-right: 4%;
+}
+
+.inputContainersRow{
+    padding-left:3%;
+    padding-right:3%;
+display: flex;
+flex-direction: column;
+justify-content: center;}
+
+.divBtn{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 10%;
+}
+.buttonAdm{
+    width: 10%;
+    border: none;
+    border-radius: 5px;
+    background-color: #00ADB5;
+    color: #fff;
+    font-weight: bold;
+    box-shadow: 1px  1px 0px 0px #92969c;
+    padding: 1%;
+}
+
+/* .active{
+    
+    font-family: 'Roboto Slab', serif;
+    color: #00ADB5;
+} */
+
+.nav-item{
+    font-family:'Roboto Slab', serif;
+    
+}
+
+.tableWrapper{
+    height: 100%;
+width: 100%;
+display: flex;
+flex-direction: column;
+}
+
+.tableWrapper tbody{
+    
+    width: 100%;
+    max-height: 800px;
+    overflow:scroll;
+    
+ }
+
+ .tableWrapper tr{
+    display: flex;
+    width:100%;
+    
+    
+ }
+ .tableWrapper td,th{
+    
+    padding-left: 2%;
+    padding-right: 2%;
+    font-family:'Roboto Slab', serif;
+    width:25%;
+    
+    
+   /*  background-color: #EEEEEE; */
+ }
+ 
+ .tableWrapper tr{
+  
+    background-color: #eeeeee;
+ }
+
+ .tableWrapper tr:nth-child(even){
+   
+    background-color: #ffffff;
+ }
+ .tableWrapper tr:first-child{
+    border: 1px solid rgb(170, 170, 170);
+ }
+
+ .divEdit{
+     padding-bottom: 11%;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     width: 100%;
+ }

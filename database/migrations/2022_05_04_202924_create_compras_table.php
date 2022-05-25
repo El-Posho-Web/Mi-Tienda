@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id('id_compra');
             $table->unsignedBigInteger('id_usuario');
             $table->foreign('id_usuario')->references('id_usuario')->on('users');
-            $table->integer('cantidad');
+            $table->float('precio_total');
             $table->timestamps();
         });
     }

@@ -1,0 +1,254 @@
+.AllItemsContainer{
+display: flex;
+width: 95%;
+background-color: #fff;
+height: 100vh;
+margin:auto;
+margin-top: 2.5%;
+border: 1.5px solid rgb(255, 224, 224);
+ box-shadow: -0.5px -0.5px 1px  rgb(250, 224, 224) ;
+border-radius: 6px;
+overflow: hidden;
+}
+
+.prodContainer{
+    height: 100%;
+    width: 70%;
+    display: flex;
+
+}
+.prodContainerPic{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2%;
+    height: 100%;
+    width: 55%;
+    
+}
+
+.prodContainerPic img{
+    overflow: hidden;
+    height: 100%;
+    object-fit: contain;
+    
+
+}
+.prodContainerInfo{
+    
+    padding-top: 8%;
+    padding-bottom: 8%;
+    padding-left: 1%;
+    padding-right: 3%;
+    height: 100%;
+    width: 45%;
+    background-color: #fff;
+    
+    /* font-family: 'Open Sans', sans-serif; */
+    /*  font-family: 'Comfortaa', cursive; */
+}
+
+.prodContainerInfo-Title{
+    width: 100%;
+    height: 15%;
+    
+
+}
+.prodContainerInfo-Title h1{
+    
+    font-size: 1.2rem;
+    font-family: 'Roboto', sans-serif; 
+    margin: 0;
+    /* font-family: 'Open Sans', sans-serif; */
+    /*  font-family: 'Comfortaa', cursive; */
+}
+
+.prodContainerInfo-Price {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 17%;
+    
+
+}
+.prodContainerInfo-Price span{
+    
+    font-size: 26px;
+    font-family: 'Open Sans', sans-serif;
+
+}
+.prodContainerInfo-Price a{
+    
+    font-size: 14px;
+    text-decoration: none;
+
+}
+
+.prodContainerInfo-Desc{
+    display: flex;
+    flex-direction: column;
+width: 100%;
+height: 65%;
+
+}
+
+.prodContainerInfo-Desc h3{
+    margin-top: 5%;
+    margin-bottom: 0%;
+    font-family:  'Roboto', sans-serif;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.prodContainerInfo-Desc p{
+    font-family:  'Roboto', sans-serif;
+    font-size: 0.95rem;
+    
+}
+
+
+
+.compraYcarrito{
+   
+
+    height: 100%;
+    width: 30%;
+    display: flex;
+    background-color: #fff;
+}
+
+.carrito{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 15%;
+    padding-bottom: 15%;
+
+    padding-left: 4%;
+    padding-right: 4%;
+    margin: auto;
+    width: 95%;
+    height: 95%;
+    border: 1px solid rgb(255, 206, 206);
+    border-radius: 5px;
+}
+
+.carritoShipping{
+    
+    width: 100%;
+    height: 14%;
+    display: flex;
+    flex-direction: column;
+}
+.carritoShippingDate{
+    width: 100%;
+    margin-bottom: -3%;
+    height: 50%;
+    display: flex;
+    
+}
+.carritoShippingLugar{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    
+}
+
+.carritoShippingLugar span{
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    color: rgb(138, 138, 138);
+}
+
+.carritoShipping p{
+    margin: 0;
+    font-family:  'Roboto', sans-serif;
+    font-weight: lighter;
+    font-size: 1.1rem;
+    color: rgb(57, 57, 57);
+}
+ .carritoStockYcompra{
+     display: flex;
+     flex-direction: column;
+     width: 100%;
+     height: 70%;
+ }
+.carritostock{
+    display: flex;
+    
+    height: 15%;
+    width: 100%;
+    align-items: center;
+}
+
+.carritostock span{
+    margin-right:2%;
+}
+.disponible{
+    font-size: 1.2rem;
+    color: #007600;
+}
+.NoDisponible{
+    font-size: 1.2rem;
+    color: #570909;
+}
+
+.carritocompra{
+    display: flex;
+    flex-direction: column;
+    margin-top: 3%;
+   justify-content: space-evenly;
+    height:40% ;
+width: 100%;
+}
+.carritocompra button{
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    background-color: #00ADB5;
+    color: #fff;
+    font-weight: bold;
+    box-shadow: 1px  1px 0px 0px #92969c;
+    padding: 12px 26px;
+    transition: background-color 1s;
+
+}
+
+.carritocompra button:hover{
+    background-color:#016d73
+    
+}
+.carritocompra button:first-child{
+    
+    border: 2px solid #00ADB5;
+    
+
+    background-color: #fff;
+    color: #00ADB5;
+    transition: border 1s;
+}
+.carritocompra button:first-child:hover{
+    
+    border: 2px solid #016d73;
+    
+    
+    color: #016d73;
+
+}
+
+.separador{
+    margin-top: 2%;
+    padding-left: 5%;
+    padding-right: 5%;
+
+    height: 4vh;
+    width: 100%;
+} 
+.separador span{
+    font-weight: bold;
+    color: black;
+    font-size: 1.4rem;
+    font-family: 'Open Sans', sans-serif; 
+}

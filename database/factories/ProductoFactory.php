@@ -20,7 +20,7 @@ class ProductoFactory extends Factory
     public function definition()
     {
         return [
-            'nombre' => $this->faker->word(),
+            'nombre' => $this->faker->unique()->word(),
             'descripcion' => $this->faker->sentence($nbWords = 5, $variableNbWords = true),
             'stock' => $this->faker->numberBetween($min = 1, $max = 10),
             'precio_unitario' => $this->faker->randomFloat($nbMaxDecimals = 2, $min = 100, $max = 1000),

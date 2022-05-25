@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Validation\ValidationException;
 use Illuminate\Http\Request;
+use App\Models\Categoria;
 
 class SesionController extends Controller
 {
@@ -11,13 +12,15 @@ class SesionController extends Controller
 
     public function crear()
     {
-        return view('login');
+        return view('login',[
+            'categorias' => Categoria::all()
+        ]);
     }
 
     public function logout()
     {
-        auth()->logout();
-
+        \Auth::logout();
+        \Session::flush();
         return redirect('mi-tienda')->with('correcto', 'Cerraste tu sesion.');
     }
 
