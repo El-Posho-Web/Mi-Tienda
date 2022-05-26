@@ -20,7 +20,7 @@ use App\Models\Categoria;
 |
 */
 route ::get('/test', function() {
-   return view('csstest'); 
+   return view('testResponsive'); 
 });
 
 Route::get('/', function () {

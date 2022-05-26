@@ -50,9 +50,11 @@
                 <div class="logoutIcon">
                     <form action="/mi-tienda/logout" method="POST">
                         @csrf
-                        <button type="submit" style="background-color:transparent; border:none; outline:none; color:#fff"><span class="material-symbols-outlined">
+                        <button type="submit" style="background-color:transparent; border:none; outline:none; color:#fff">
+                            <span class="material-symbols-outlined">
                             logout
-                            </span></button>
+                            </span>
+                        </button>
                     </form>
                    
                 </div>
