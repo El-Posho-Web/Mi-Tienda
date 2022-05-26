@@ -50,15 +50,7 @@
   @enderror
     </div>
 
-    <div class="div2InputsContainer">
-      <div class="divInputPlusLabel">
-        <label for="">Correo Electronico</label>
-        <input class="inputSignup" type="email" name="email" id="email" placeholder="Tu correo" value="{{ old('correo') }}" required>
-        @error('email')
-        <p>{{ $message }}</p>
-    @enderror
-      </div>
-
+    <div class="div2InputsContainer">    
 
       <div class="divInputPlusLabel">
         <label for="">DNI</label>
@@ -67,6 +59,35 @@
         <p>{{ $message }}</p>
     @enderror
       </div>
+
+      <div class="divInputPlusLabel">
+        <label for="">Domicilio</label>
+        <input class="inputSignup" type="text" name="domicilio" id="domicilio" placeholder="Tu domicilio" value="{{ old('domicilio') }}" required>
+        @error('domicilio')
+        <p>{{ $message }}</p>
+    @enderror
+      </div>
+    </div>
+
+    <div class="div2InputsContainer">
+
+      <div class="divInputPlusLabel">
+        <label for="">Correo Electronico</label>
+        <input class="inputSignup" type="email" name="email" id="email" placeholder="Tu correo" value="{{ old('correo') }}" required>
+        @error('email')
+        <p>{{ $message }}</p>
+    @enderror
+      </div>
+
+      <div class="divInputPlusLabel">
+        <label for="">Correo Electronico</label>
+        <input class="inputSignup" type="email" name="email_confirmation" id="email_confirmation" placeholder="Tu correo" value="{{ old('correo') }}" required>
+        @error('email')
+        <p>{{ $message }}</p>
+    @enderror
+      </div>
+
+
     </div>
 
     <div class="div2InputsContainer">
@@ -79,11 +100,10 @@
     @enderror
       </div>
 
-
       <div class="divInputPlusLabel">
-        <label for="">Domicilio</label>
-        <input class="inputSignup" type="text" name="domicilio" id="domicilio" placeholder="Tu domicilio" value="{{ old('domicilio') }}" required>
-        @error('domicilio')
+        <label for="">Contraseña</label>
+        <input class="inputSignup" type="password" name="password_confirmation" id="password_confirmation" placeholder="Tu contraseña" required>
+        @error('password')
         <p>{{ $message }}</p>
     @enderror
       </div>

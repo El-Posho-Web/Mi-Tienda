@@ -118,6 +118,7 @@
             <span style="margin-left:2%; font-size:0.75rem; color:rgb(137, 137, 137)">({{$producto->stock}} disponibles)</span>
           </div>
           <div class="carritocompra">
+            @auth
             <button>
                 Comprar
             </button>
@@ -125,6 +126,9 @@
             <button type="submit">
                   Agregar al carrito
             </button>
+            @else
+              <h2>Tienes que estar logueado para poder realizar una compra</h2>
+            @endauth
           </div>
 
           </form>
