@@ -4,6 +4,7 @@ body{
     background-color: #eee;
 }
 
+/*--------------------------------- ATAJOS -------------------------------*/
 .flex{
     display: flex;
 }
@@ -22,6 +23,9 @@ body{
     justify-content: center;
     align-items: center;
 }
+
+
+/*--------------------------------- HEADER -------------------------------*/
 
 .header{
     padding: 15px;
@@ -132,4 +136,23 @@ body{
         padding: 0;
         font-size: 35px;
 
+    }
+
+
+
+    /*--------------------------------- PROMOS CARRUSEL -------------------------------*/
+
+  /*   .carrusel{
+        max-height: 40vh !important;
+        overflow: hidden;
+    } */
+   /*  .carrusel img{
+        height: auto;
+        object-fit: contain !important;
+    } */
+
+    .carousel-item img{
+        height: 35vh;
+        width: 100%;
+        object-fit: fill;
     }

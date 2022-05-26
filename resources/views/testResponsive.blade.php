@@ -112,7 +112,34 @@
             <div class="promos">
                 <div class="fila">
 
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        
+                            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner" id="bordering">
+                                  <div class="carousel-item active" data-bs-interval="100000">
+                                    <img src="/img/promos/offer1.jpg" class="d-block carruselitem" " alt="..." >
+                                  </div>
+                                  <div class="carousel-item" data-bs-interval="100000">
+                                    <img src="/img/promos/offer1.jpg" class="d-block carruselitem" " alt="...">
+                                  </div>
+                                  <div class="carousel-item" data-bs-interval="100000">
+                                    <img src="/img/promos/offer1.jpg" class="d-block carruselitem"  "  alt="..." >
+                                  </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                  <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                  <span class="visually-hidden">Next</span>
+                                </button>
+                              </div>
+                        
+                    </div>
                 </div>
             </div>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
 </html>
