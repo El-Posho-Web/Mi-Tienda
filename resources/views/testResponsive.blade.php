@@ -116,13 +116,13 @@
                         
                             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                                 <div class="carousel-inner" id="bordering">
-                                  <div class="carousel-item active" data-bs-interval="100000">
+                                  <div class="carousel-item active" >
                                     <img src="/img/promos/offer1.jpg" class="d-block carruselitem" " alt="..." >
                                   </div>
-                                  <div class="carousel-item" data-bs-interval="100000">
+                                  <div class="carousel-item" >
                                     <img src="/img/promos/offer1.jpg" class="d-block carruselitem" " alt="...">
                                   </div>
-                                  <div class="carousel-item" data-bs-interval="100000">
+                                  <div class="carousel-item" >
                                     <img src="/img/promos/offer1.jpg" class="d-block carruselitem"  "  alt="..." >
                                   </div>
                                 </div>
@@ -139,6 +139,199 @@
                     </div>
                 </div>
             </div>
+
+            <div class="productos">
+                        <div class="fila">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="min-height: 70vh">
+                                    
+                                                        
+                                            <div id="carouselprod" class="carousel slide col-lg-12 col-md-12 col-sm-12 col-xs-12 flex center" data-bs-ride="carousel">
+
+                                                <div class=" col-lg-11 col-md-11 col-sm-11 col-xs-12 " >
+                                                    
+                                                        <div class="carousel-item active col-lg-12 col-md-12 col-sm-12 col-xs-12" data-bs-interval="100000">
+
+                                                                    <div class=" col-lg-3 col-md-3 col-sm-6 col-xs-12 ">
+                                                                        <div class="container1producto ">
+                                                                            
+                                                                            <div class="container1productoPic">
+                                                                                <img src="https://via.placeholder.com/640x480.png/CCCCCC?text=imagen" alt="">
+                                                                              </div>
+                                                                              <div class="container1productoPrice">
+                                                                                 $ xd1
+                                                                                 <span class="productName">Producto</span>
+                                                                                 
+                                                                              </div>
+
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class=" col-lg-3 col-md-3 col-sm-6 col-xs-12 " >
+                                                                        <div class="container1producto">
+                                                                            <div class="container1productoPic">
+                                                                                <img src="https://via.placeholder.com/640x480.png/CCCCCC?text=imagen" alt="">
+                                                                              </div>
+                                                                              <div class="container1productoPrice">
+                                                                                 $ xd2
+                                                                                 <span class="productName">Producto</span>
+                                                                                 
+                                                                              </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class=" col-lg-3 col-md-3 col-sm-6 col-xs-12 " >
+                                                                        <div class="container1producto">
+                                                                            <div class="container1productoPic">
+                                                                                <img src="https://via.placeholder.com/640x480.png/CCCCCC?text=imagen" alt="">
+                                                                              </div>
+                                                                              <div class="container1productoPrice">
+                                                                                 $ aa
+                                                                                 <span class="productName">Producto</span>
+                                                                                 
+                                                                              </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class=" col-lg-3 col-md-3 col-sm-6 col-xs-12 " >
+                                                                        <div class="container1producto">
+                                                                            <div class="container1productoPic">
+                                                                                <img src="https://via.placeholder.com/640x480.png/CCCCCC?text=imagen" alt="">
+                                                                              </div>
+                                                                              <div class="container1productoPrice">
+                                                                                 $ 1dd
+                                                                                 <span class="productName">Producto</span>
+                                                                                 
+                                                                              </div>
+                                                                        </div>
+                                                                    </div>
+                                                            
+                                                        </div>
+
+                                                        <div class="carousel-item  col-lg-12 col-md-12 col-sm-12 col-xs-12" data-bs-interval="100000">
+
+                                                            <div class=" col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                                                <div class="container1producto">
+                                                                    
+                                                                    <div class="container1productoPic">
+                                                                        <img src="https://via.placeholder.com/640x480.png/CCCCCC?text=imagen" alt="">
+                                                                      </div>
+                                                                      <div class="container1productoPrice">
+                                                                         $ 1xd
+                                                                         <span class="productName">Producto</span>
+                                                                         
+                                                                      </div>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class=" col-lg-3 col-md-3 col-sm-6 col-xs-12" >
+                                                                <div class="container1producto">
+                                                                    <div class="container1productoPic">
+                                                                        <img src="https://via.placeholder.com/640x480.png/CCCCCC?text=imagen" alt="">
+                                                                      </div>
+                                                                      <div class="container1productoPrice">
+                                                                         $ 10d
+                                                                         <span class="productName">Producto</span>
+                                                                         
+                                                                      </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class=" col-lg-3 col-md-3 col-sm-6 col-xs-12" >
+                                                                <div class="container1producto">
+                                                                    <div class="container1productoPic">
+                                                                        <img src="https://via.placeholder.com/640x480.png/CCCCCC?text=imagen" alt="">
+                                                                      </div>
+                                                                      <div class="container1productoPrice">
+                                                                         $ 1000
+                                                                         <span class="productName">Producto</span>
+                                                                         
+                                                                      </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class=" col-lg-3 col-md-3 col-sm-6 col-xs-12" >
+                                                                <div class="container1producto">
+                                                                    <div class="container1productoPic">
+                                                                        <img src="https://via.placeholder.com/640x480.png/CCCCCC?text=imagen" alt="">
+                                                                      </div>
+                                                                      <div class="container1productoPrice">
+                                                                         $ 1000
+                                                                         <span class="productName">Producto</span>
+                                                                         
+                                                                      </div>
+                                                                </div>
+                                                            </div>
+                                                    
+                                                </div> <div class="carousel-item  col-lg-12 col-md-12 col-sm-12 col-xs-12" data-bs-interval="100000">
+
+                                                                    <div class=" col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                                                        <div class="container1producto">
+                                                                            
+                                                                            <div class="container1productoPic">
+                                                                                <img src="https://via.placeholder.com/640x480.png/CCCCCC?text=imagen" alt="">
+                                                                              </div>
+                                                                              <div class="container1productoPrice">
+                                                                                 $ 1000
+                                                                                 <span class="productName">Producto</span>
+                                                                                 
+                                                                              </div>
+
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class=" col-lg-3 col-md-3 col-sm-6 col-xs-12" >
+                                                                        <div class="container1producto">
+                                                                            <div class="container1productoPic">
+                                                                                <img src="https://via.placeholder.com/640x480.png/CCCCCC?text=imagen" alt="">
+                                                                              </div>
+                                                                              <div class="container1productoPrice">
+                                                                                 $ 1000
+                                                                                 <span class="productName">Producto</span>
+                                                                                 
+                                                                              </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class=" col-lg-3 col-md-3 col-sm-6 col-xs-12" >
+                                                                        <div class="container1producto">
+                                                                            <div class="container1productoPic">
+                                                                                <img src="https://via.placeholder.com/640x480.png/CCCCCC?text=imagen" alt="">
+                                                                              </div>
+                                                                              <div class="container1productoPrice">
+                                                                                 $ 1000
+                                                                                 <span class="productName">Producto</span>
+                                                                                 
+                                                                              </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class=" col-lg-3 col-md-3 col-sm-6 col-xs-12" >
+                                                                        <div class="container1producto">
+                                                                            <div class="container1productoPic">
+                                                                                <img src="https://via.placeholder.com/640x480.png/CCCCCC?text=imagen" alt="">
+                                                                              </div>
+                                                                              <div class="container1productoPrice">
+                                                                                 $ 1000
+                                                                                 <span class="productName">Producto</span>
+                                                                                 
+                                                                              </div>
+                                                                        </div>
+                                                                    </div>
+                                                            
+                                                        </div>
+
+                                                </div>
+                                                </div>
+
+
+                                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselprod" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                                </button>
+                                                <button class="carousel-control-next" type="button" data-bs-target="#carouselprod" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Next</span>
+                                                </button>
+                                            </div>
+
+                                </div>
+                        </div>
+            </div>
+
+
+
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 

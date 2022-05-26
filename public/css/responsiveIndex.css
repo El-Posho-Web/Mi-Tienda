@@ -6,7 +6,7 @@ body{
 
 /*--------------------------------- ATAJOS -------------------------------*/
 .flex{
-    display: flex;
+    display: flex !important;
 }
 .center{
     justify-content: center;
@@ -15,7 +15,7 @@ body{
     justify-content: start;
 }
 .sbt{
-    justify-content: space-between;
+    justify-content: space-between !important;
 }
 
 .flex-r-center{
@@ -156,3 +156,73 @@ body{
         width: 100%;
         object-fit: fill;
     }
+
+    /* ----------------------------------- container item ------------------------------------- */
+    
+.container1producto{
+    margin: 15px;
+    display: flex   ;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    height: 55vh;
+    border:   1px solid rgb(232, 232, 232);
+    transition: all 0.4s;
+}
+
+.container1producto span{
+    visibility: hidden;
+ }
+.container1producto:hover span{
+   visibility: visible;
+}
+
+
+
+.container1productoPic{
+    background-color: #fff;
+    padding: 5%;
+    height: 38.5vh;
+    width: 100%;
+}
+.container1producto:hover{
+    
+    
+    box-shadow: 1px 3px 8px 1px rgb(189, 189, 189);
+
+}
+
+.container1producto:hover {
+    
+    
+    height: 60vh;
+
+}
+
+.container1productoPic > img{
+    width: 100%; /* or any custom size */
+    height: 100%; 
+    object-fit: cover;
+}
+
+.container1productoPrice{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 1.5rem;
+    padding: 7.5%;
+    border-top: 1px solid rgb(241, 220, 220) ;
+    height: auto;
+    width: 100%;
+}
+
+
+
+.productName{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    color: #6d6d6d;
+}
