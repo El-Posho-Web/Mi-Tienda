@@ -21,7 +21,8 @@ return new class extends Migration
             $table->string('password', 255);
             $table->integer('dni');
             $table->string('domicilio', 50);
-            $table->boolean('admin')->default(false);
+            $table->unsignedBigInteger('id_tipo_usuario')->default(2);
+            $table->foreign('id_tipo_usuario')->references('id_tipo_usuario')->on('tipo_usuarios');
             $table->timestamps();
         });
     }

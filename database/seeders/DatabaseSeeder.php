@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Categoria;
+use App\Models\TipoUsuario;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,13 +17,21 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        TipoUsuario::factory()->create([
+            'nombre' => 'administrador'
+        ]);
+
+        TipoUsuario::factory()->create([
+            'nombre' => 'cliente'
+        ]);
+
         User::factory()->create([
             'nombre' => 'admin',
             'apellido' => 'admin',
             'dni' => '12345678',
             'domicilio' => 'asd',
             'email' => 'admin@ejemplo.com',
-            'admin' => 1,
+            'id_tipo_usuario' => 1,
             'password' => '1234'
         ]);
 
