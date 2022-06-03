@@ -45,11 +45,8 @@
 
           {{-- caja contenedora de los items del Carrito(productos en si) --}}
           <div class="ItemsCont">
-            @php
-            $total = 0;
-            @endphp
             @if (session()->has('carrito'))
-            @foreach ($carrito as $id => $producto)
+            @foreach ($carrito as $producto)
             <div class="itemCarrito">
               {{-- foto,nombre,cantidad,precio de producto --}}
                     <div class="itemCarritoPicDesc">
@@ -63,27 +60,29 @@
                       </div>
 
                       <div class="itemCarritoCantidad">
-                        <input type="number" name="cantidad" id="cantidad" class="inputStock" min="1" step="1" value="{{$producto['cantidad']}}" disabled>
+                        Cantidad <input type="number" name="cantidad" id="cantidad" class="inputStock" min="1" step="1" value="{{$producto['cantidad']}}" disabled>
                         {{-- <span style="margin-left:2%; font-size:0.9rem; color:rgb(137, 137, 137)">({{$producto['cantidad']}} disponibles)</span> --}}
                       </div>
                       <div class="itemCarritoPrecio">
-                        <span> ${{$producto['total']}}</span>
+                        Precio por unidad
+                        <span> ${{$producto['precio_unitario']}}</span>
+                      </div>
+                      <div class="itemCarritoPrecio">
+                        Total
+                        <span> ${{$producto['precio_unitario']*$producto['cantidad']}}</span>
                       </div>
                         
                     </div>
                           {{-- opciones de producto --}}
                           <div class="itemOptions">
                           
-                            <form method="POST" action="/mi-tienda/carrito/eliminar">@csrf  <input type="hidden" name="id_producto" id="id_producto" value="{{$id}}"><button>Eliminar</button></form>
+                            <form method="POST" action="/mi-tienda/carrito/eliminar">@csrf  <input type="hidden" name="id_producto" id="id_producto" value="{{$producto['id_producto']}}"><button>Eliminar</button></form>
                             {{-- <a href="" style="width: 13%">Comprar ahora</a> --}}
                             {{-- <a href="" style="width: 30%">Ver mas productos de la categoria</a> --}}
 
                           </div>
             </div>
             {{-- AQUI TEERMINA EL ITEM HARDCODEADO --}}
-            @php
-            $total = $total + $producto['total'];
-            @endphp
             @endforeach
             <div class="sumario">
               {{-- DESTINO DE ENVIO --}}
