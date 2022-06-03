@@ -67,12 +67,12 @@ Route::post('mi-tienda/registro', [RegistroController::class, 'guardar'])->middl
 
 Route::get('mi-tienda/admin', [AdminController::class, 'admin'])->middleware('isadmin');
 
-Route::post('mi-tienda/admin/producto', [AdminController::class, 'producto']);
+Route::post('mi-tienda/admin/producto', [AdminController::class, 'producto'])->middleware('isadmin');
 
-Route::post('mi-tienda/admin/categoria', [AdminController::class, 'categoria']);
+Route::post('mi-tienda/admin/categoria', [AdminController::class, 'categoria'])->middleware('isadmin');
 
-Route::get('mi-tienda/admin/producto/{producto}/editar', [AdminController::class, 'editarproducto']);
+Route::get('mi-tienda/admin/producto/{producto}/editar', [AdminController::class, 'editarproducto'])->middleware('isadmin');
 
-Route::post('mi-tienda/admin/producto/{producto}/actualizar', [AdminController::class, 'actualizarproducto']);
+Route::post('mi-tienda/admin/producto/{producto}/actualizar', [AdminController::class, 'actualizarproducto'])->middleware('isadmin');
 
-Route::delete('mi-tienda/admin/producto/{producto}/eliminar', [AdminController::class, 'destruirproducto']);
+Route::delete('mi-tienda/admin/producto/{producto}/eliminar', [AdminController::class, 'destruirproducto'])->middleware('isadmin');
