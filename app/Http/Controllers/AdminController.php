@@ -62,4 +62,9 @@ class AdminController extends Controller
         $producto->delete();
         return redirect('mi-tienda/admin');
     }
+
+    public function destruircategoria(Categoria $categoria){
+        $categoria->delete();
+        return redirect('mi-tienda/admin');
+    }
 }

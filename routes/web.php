@@ -76,3 +76,5 @@ Route::get('mi-tienda/admin/producto/{producto}/editar', [AdminController::class
 Route::post('mi-tienda/admin/producto/{producto}/actualizar', [AdminController::class, 'actualizarproducto'])->middleware('isadmin');
 
 Route::delete('mi-tienda/admin/producto/{producto}/eliminar', [AdminController::class, 'destruirproducto'])->middleware('isadmin');
+
+Route::delete('mi-tienda/admin/categoria/{categoria}/eliminar', [AdminController::class, 'destruircategoria'])->middleware('isadmin');

@@ -131,6 +131,51 @@
 
                     </div>
                 </form>
+
+                    
+                <div class="header" >
+                    <div class="tituloHeader"> <p>Eliminar categoria</p></div>                 
+                        </div>
+                        <div class="actionHeader">
+                        <div class="tituloActionHeader"> <p>Seleccione la categoria en la tabla para eliminarla</p></div>
+                        </div>
+     
+                        <!-- TABLE BEGIN -->
+                        <div class="tableWrapper">
+                        <table class="tableWrapper">
+     
+        <tbody>
+            @php
+                $categorias = \App\Models\Categoria::all();
+            @endphp
+     
+            <tr><th>NOMBRE</th><th></th> <th></th></tr>
+     
+            @foreach ($categorias as $categoria)
+            <tr>
+                <td>{{ $categoria->nombre }}</td>
+                <td>
+                    <div class="divEdit">
+                    {{-- <a class="buttonAdm" href="/mi-tienda/admin/producto/{{ $producto->id_producto }}/editar" style="text-decoration:none; font-weight:300; width:100%; padding:5%; margin-top:10% !important">Modificar categoria</a> --}}
+     
+                    </div>
+                </td>
+                <td><form method="POST" action="/mi-tienda/admin/categoria/{{ $categoria->id_categoria }}/eliminar">
+                    @csrf 
+                    @method('DELETE')
+                    <button class="buttonAdm" style="font-weight:300; width:100%; padding:5%; margin-top:10%">Eliminar</button>
+                    
+                </form></td>
+            </tr>
+            @endforeach
+        </tbody>
+     </table>
+                        </div>
+     
+        <!-- TABLE END -->
+     
+     
+     
             </div>
 
               <!-- CATEGORIAS TAB END -->
