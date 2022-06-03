@@ -64,7 +64,12 @@ class AdminController extends Controller
     }
 
     public function destruircategoria(Categoria $categoria){
+        if (count($categoria->productos) > 0){
+            return redirect('mi-tienda/admin')->with('hayproducto', 'No se puede eliminar categoria. Existen productos con dicha categoria.');
+        } else {
         $categoria->delete();
         return redirect('mi-tienda/admin');
+        }
+
     }
 }

@@ -14,6 +14,12 @@
     <title>Admin</title>
 </head>
 <body>
+    @if (session()->has('hayproducto'))
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      {{ session('hayproducto') }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      @endif
+    </div>
 
                 <!--   TAB CALL  -->
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
