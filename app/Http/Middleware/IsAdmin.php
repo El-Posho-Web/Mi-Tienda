@@ -21,7 +21,7 @@ class IsAdmin
             abort(403);
         }
 
-        if (auth()->user()->admin == '0'){
+        if (auth()->user()->id_tipo_usuario != '1'){
             abort(403);
         }
 
