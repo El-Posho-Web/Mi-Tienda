@@ -14,13 +14,17 @@
     <title>Admin</title>
 </head>
 <body>
-    @if (session()->has('hayproducto'))
+
+   {{--  MENSAJES DE CONFIRMACIÓN O ERROR --}}
+    
+    @if (session()->has('mensaje'))
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
-      {{ session('hayproducto') }}
+      {{ session('mensaje') }}
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       @endif
-    </div>
 
+
+    </div>
                 <!--   TAB CALL  -->
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
