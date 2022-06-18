@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Categoria;
 use App\Models\TipoUsuario;
+use App\Models\Estado_envio;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,6 +18,22 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        Estado_envio::factory()->create([
+            'nombre' => 'pendiente'
+        ]);
+
+        Estado_envio::factory()->create([
+            'nombre' => 'confirmado'
+        ]);
+
+        Estado_envio::factory()->create([
+            'nombre' => 'cancelado'
+        ]);
+
+        Estado_envio::factory()->create([
+            'nombre' => 'pendiente'
+        ]);
+
         TipoUsuario::factory()->create([
             'nombre' => 'administrador'
         ]);

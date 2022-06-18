@@ -25,7 +25,7 @@
 
 
     </div>
-                <!--   TAB CALL  -->
+                {{-- PESTAÑAS --}}
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Agregar producto</button>
@@ -40,15 +40,13 @@
                     <button class="nav-link" id="disabled-tab" data-bs-toggle="tab" data-bs-target="#disabled-tab-pane" type="button" role="tab" aria-controls="disabled-tab-pane" aria-selected="false" disabled>Disabled</button>
                 </li>
                 </ul>
-                <!-- TAB CALL END -->
 
 
-
-                <!-- TAB CONTENT -->
+                <!-- CONTENIDOS -->
 
                 <div class="tab-content" id="myTabContent">
 
-                    <!-- PRODUCTOS TAB -->
+                    <!-- PRODUCTOS  -->
 
                 <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
                     <div class="header" >
