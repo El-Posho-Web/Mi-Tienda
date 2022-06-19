@@ -7,6 +7,7 @@ use App\Models\Producto;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Validation\ValidationException;
+use App\Models\Envio;
 
 class AdminController extends Controller
 {
@@ -71,5 +72,15 @@ class AdminController extends Controller
         return redirect('mi-tienda/admin')->with('mensaje', 'Categoria eliminada exitosamente.');
         }
 
+    }
+
+    public function actualizarenvio(Envio $envio){
+        $attributes = request()->validate([
+            'id_estado_envio' => 'required'
+        ]);
+
+        $envio->update($attributes);
+
+        return redirect('mi-tienda/admin')->with('mensaje', 'Envio actualizado exitosamente');
     }
 }

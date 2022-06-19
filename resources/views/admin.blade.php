@@ -18,7 +18,7 @@
    {{--  MENSAJES DE CONFIRMACIÓN O ERROR --}}
     
     @if (session()->has('mensaje'))
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
       {{ session('mensaje') }}
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       @endif
@@ -38,6 +38,9 @@
                 </li>
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="disabled-tab" data-bs-toggle="tab" data-bs-target="#disabled-tab-pane" type="button" role="tab" aria-controls="disabled-tab-pane" aria-selected="false" disabled>Disabled</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="envios-tab" data-bs-toggle="tab" data-bs-target="#envios-tab-pane" type="button" role="tab" aria-controls="envios-tab-pane" aria-selected="false">Envios</button>
                 </li>
                 </ul>
 
@@ -238,32 +241,63 @@
 </div>
 <!-- TABLE TAB END -->
   <div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">...</div>
+
+  {{-- TABLA DE ENVIOS --}}
+  <div class="tab-pane fade" id="envios-tab-pane" role="tabpanel" aria-labelledby="envios-tab"> 
+
+    <div class="header" >
+        <div class="tituloHeader"> <p>Envios</p></div>                 
+    </div>
+    <div class="actionHeader">
+        <div class="tituloActionHeader"> <p>Seleccione el envio para confirmarlo o cancelarlo</p></div>
+    </div>
+
+    <div class="tableWrapper">
+        <table class="tableWrapper">
+
+            <tbody>
+                @php
+                $envios = \App\Models\Envio::all();
+                @endphp
+
+                <tr><th>ID COMPRA</th><th>NOMBRE Y APELLIDO</th><th>DNI</th><th>DOMICILIO</th><th>ESTADO</th><th></th><th></th></tr>
+
+                    @foreach ($envios as $envio)
+                    <tr>
+                    <td>{{ $envio->id_compra }}</td>
+                    <td>{{ $envio->compra->usuario->nombre . " " . $envio->compra->usuario->apellido }}</td>
+                    <td>{{ $envio->compra->usuario->dni }}</td>
+                    <td>{{ $envio->compra->usuario->domicilio }}</td>
+                    <td>{{ $envio->estado->nombre }}</td>
+                    @if ($envio->id_estado_envio == 1)
+                    <td>
+                        <form method="POST" action="/mi-tienda/admin/envio/{{ $envio->id_envio }}/editar">
+                            @csrf
+                            <input type="text" name="id_estado_envio" id="id_estado_envio" value="2" hidden>
+                            <button class="buttonAdm" style="font-weight:300; width:100%; padding:5%; margin-top:10%">Confirmar</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form method="POST" action="/mi-tienda/admin/envio/{{ $envio->id_envio }}/editar">
+                            @csrf
+                            <input type="text" name="id_estado_envio" id="id_estado_envio" value="3" hidden>
+                            <button class="buttonAdm" style="font-weight:300; width:100%; padding:5%; margin-top:10%">Cancelar</button>
+                        </form>
+                    </td>
+                    @else
+                    <td></td>
+                    <td></td>
+                    @endif
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+
+
+
+  </div>
 </div>
-
-        
-        
-
-
-      
-
-        <!-- 
-        <input type="text" name="descripcion" id="descripcion">
-        <label for="stock"> Stock </label>
-        <input type="number" name="stock" id="stock">
-        <label for="precio"> Precio </label>
-        <input type="number" name="precio_unitario" id="precio_unitario">
-        <label for="cat"> Categoria </label>
-        <select name="id_categoria" id="id_categoria">
-        @php
-            $categorias = \App\Models\Categoria::all();
-        @endphp
-
-        @foreach ($categorias as $categoria)
-        <option value="{{ $categoria->id_categoria }}"> {{ $categoria->nombre }}</option>
-        @endforeach
-    </select>
-        <button type="submit">Submit</button>
-    </form> -->
 
    @include('footer')
     
