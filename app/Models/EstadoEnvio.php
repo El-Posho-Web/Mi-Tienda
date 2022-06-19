@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Estado_envio extends Model
+class EstadoEnvio extends Model
 {
     use HasFactory;
 
