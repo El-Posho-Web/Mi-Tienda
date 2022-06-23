@@ -7,6 +7,7 @@ use App\Models\Producto;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Validation\ValidationException;
+use App\Models\Envio;
 
 class AdminController extends Controller
 {
@@ -27,7 +28,7 @@ class AdminController extends Controller
 
         Producto::create($attributes);
 
-        return redirect('mi-tienda/admin');
+        return redirect('mi-tienda/admin')->with('mensaje', 'Producto creado exitosamente.');
     }
 
     public function categoria(){
@@ -37,7 +38,7 @@ class AdminController extends Controller
 
         Categoria::create($attributes);
 
-        return redirect('mi-tienda/admin');
+        return redirect('mi-tienda/admin')->with('mensaje', 'Categoria creada exitosamente.');
     }
 
     public function editarproducto(Producto $producto){
@@ -55,21 +56,31 @@ class AdminController extends Controller
 
         $producto->update($attributes);
 
-        return redirect('mi-tienda/admin');
+        return redirect('mi-tienda/admin')->with('mensaje', 'Producto actualizado exitosamente.');
     }
 
     public function destruirproducto(Producto $producto){
         $producto->delete();
-        return redirect('mi-tienda/admin');
+        return redirect('mi-tienda/admin')->with('mensaje', 'Producto eliminado exitosamente.');
     }
 
     public function destruircategoria(Categoria $categoria){
         if (count($categoria->productos) > 0){
-            return redirect('mi-tienda/admin')->with('hayproducto', 'No se puede eliminar categoria. Existen productos con dicha categoria.');
+            return redirect('mi-tienda/admin')->with('mensaje', 'No se puede eliminar categoria. Existen productos con dicha categoria.');
         } else {
         $categoria->delete();
-        return redirect('mi-tienda/admin');
+        return redirect('mi-tienda/admin')->with('mensaje', 'Categoria eliminada exitosamente.');
         }
 
+    }
+
+    public function actualizarenvio(Envio $envio){
+        $attributes = request()->validate([
+            'id_estado_envio' => 'required'
+        ]);
+
+        $envio->update($attributes);
+
+        return redirect('mi-tienda/admin')->with('mensaje', 'Envio actualizado exitosamente');
     }
 }

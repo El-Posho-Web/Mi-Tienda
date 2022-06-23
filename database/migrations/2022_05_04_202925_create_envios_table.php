@@ -18,7 +18,8 @@ return new class extends Migration
             $table->unsignedBigInteger('id_compra');
             $table->foreign('id_compra')->references('id_compra')->on('compras');
             $table->string('direccion');
-            $table->boolean('enviado')->default(false);
+            $table->unsignedBigInteger('id_estado_envio')->default(1);
+            $table->foreign('id_estado_envio')->references('id_estado_envio')->on('estado_envios');
             $table->timestamps();
         });
     }
