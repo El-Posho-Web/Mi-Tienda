@@ -39,9 +39,14 @@ Route::get('mi-tienda/categoria/{categoria:nombre}', function(Categoria $categor
         'productos' => Producto::where('id_categoria', $categoria->id_categoria)->paginate(10), 
         'usuario' => Auth::user(),
         'categorias' => Categoria::all()
-
     ]); 
 });
+
+/* LAS RUTAS HACEN LLAMADOS A LOS CONTROLADORES UBICADOS EN APP\HTTP\CONTROLLERS. 
+CADA CONTROLADOR SE ENCARGA DE LA LOGICA DE NEGOCIOS
+ESTAN DIVIDOS POR FUNCIONES RELACIONADAS  */
+
+/* MIDDLEWARES CLASES QUE CONTROLAN EL ACCESO A LAS RUTAS */
 
 Route::get('mi-tienda/carrito', [ProductoController::class, 'carrito'])->middleware('auth');
 
