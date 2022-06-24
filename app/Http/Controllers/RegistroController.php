@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class RegistroController extends Controller
 {
+    /**
+    * Devuelve la vista para registrar un usuario.
+    * 
+    * @return view
+    */
     public function crear()
     {
         return view('registro', [
@@ -15,6 +20,11 @@ class RegistroController extends Controller
         ]);
     }
 
+    /**
+    * Valida el formulario de registro ingresado por el usuario. Guarda en la BD el usuario y lo loguea.
+    * 
+    * @return redirect
+    */
     public function guardar()
     {
 
