@@ -8,6 +8,11 @@ use App\Models\Categoria;
 
 class EnvioController extends Controller
 {
+    /**
+     * Devuelve vista con los pedidos del usuario.
+     * 
+     * @return view
+     */
     public function envio()
     {
         return view('pedidos', [

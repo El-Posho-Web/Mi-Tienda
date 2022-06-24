@@ -12,8 +12,12 @@ use App\Models\Envio;
 
 class ProductoController extends Controller
 {
-    //
-
+    /**
+     * Devuelve una vista con todos los datos del producto ingresado como parametro.
+     * 
+     * @param Producto $producto
+     * @return view
+     */
     public function producto(Producto $producto)
     {
         return view('producto',
@@ -25,7 +29,12 @@ class ProductoController extends Controller
         ]);
     }
 
-
+    /**
+     * Agrega un nuevo producto al carrito. Redirecciona con un mensaje.
+     * 
+     * @param Producto $producto
+     * @return redirect
+     */
     public function agregar(Producto $producto)
     {
         $request = request()->validate([
@@ -39,6 +48,11 @@ class ProductoController extends Controller
         return redirect('mi-tienda/carrito')->with('productoagregado', 'El producto se agrego el producto al carrito.');
     }
 
+    /**
+     * Elimina un producto del carrito. Redirecciona con un mensaje.
+     * 
+     * @return redirect
+     */
     public function eliminar()
     {
         $request = request()->validate([
@@ -50,6 +64,11 @@ class ProductoController extends Controller
         return redirect('/mi-tienda/carrito')->with('productoeliminado', 'El producto se elimino del carrito.');
     }
 
+    /**
+     * Confirma la compra del producto. Redirecciona con un mensaje.
+     * 
+     * @return redirect
+     */
     public function confirmar()
     {
         $confirmacion = Carrito::confirmar();
@@ -70,6 +89,11 @@ class ProductoController extends Controller
         para ver el estado de su pedido');
     }
 
+    /**
+     * Devuelve una vista con los productos que hay en el carrito.
+     * 
+     * @return view
+     */
     public function carrito()
     {
         return view('carrito',

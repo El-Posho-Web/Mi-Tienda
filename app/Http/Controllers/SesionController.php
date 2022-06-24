@@ -8,8 +8,11 @@ use App\Models\Categoria;
 
 class SesionController extends Controller
 {
-    //
-
+    /**
+    * Devuelve la vista para loguear un usuario.
+    * 
+    * @return view
+    */
     public function crear()
     {
         return view('login',[
@@ -17,6 +20,11 @@ class SesionController extends Controller
         ]);
     }
 
+    /**
+    * Cierra la sesion del usuario y la destruye en el caso que haya quedado guardada.
+    * 
+    * @return redirect
+    */
     public function logout()
     {
         \Auth::logout();
@@ -24,6 +32,11 @@ class SesionController extends Controller
         return redirect('mi-tienda')->with('correcto', 'Cerraste tu sesion.');
     }
 
+    /**
+    * Valida los datos ingresados por el usuario. Intenta loguear al usuario y genera la sesion.
+    * 
+    * @return redirect
+    */
     public function login()
     {
         $atributos = request()->validate([
@@ -34,7 +47,7 @@ class SesionController extends Controller
 
         if (! auth()->attempt($atributos)) {
             throw ValidationException::withMessages([
-                'correo' => 'Your provided credentials could not be verified.'
+                'email' => 'El correo no puede ser verificado.',
             ]);
         }
 
