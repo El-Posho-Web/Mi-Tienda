@@ -1,3 +1,5 @@
+/*BLOQUE contenedor*/
+
 body{
     background-color: #eee !important;
     
@@ -66,7 +68,7 @@ body{
     text-decoration: none;
 }
 
-
+/*BLOQUE ITEM*/
 
 .ItemCont{
     margin-bottom: 0.2%;

@@ -1,10 +1,3 @@
-/* HERE STARTS SIGNUP CSS */
-/* HERE STARTS SIGNUP CSS */
-/* HERE STARTS SIGNUP CSS */
-/* HERE STARTS SIGNUP CSS */
-/* HERE STARTS SIGNUP CSS */
-/* HERE STARTS SIGNUP CSS */
-
 
 body{
 background-color: #EEEEEE;
@@ -13,6 +6,9 @@ background-color: #EEEEEE;
 header{
     background-color: #00ADB5;
 }
+
+/* BLOQUE HEADER  */
+/* BLOQUE HEADER  */
 
 .headerSignupContainer{
     height: 10vh;
@@ -46,6 +42,12 @@ justify-content: center;
     background-size: cover;
     background-position: 4% 60%;
 }
+
+
+
+
+/* BLOQUE SIGNUP - SIGN IN  */
+/* BLOQUE SIGNUP - SIGN IN  */
 
 .underSignup{
     margin-top: 3%;
@@ -87,18 +89,15 @@ justify-content: center;
 .divBodySignup-Left{
    
     width: 30%;
-    background: url(/img/SigninImage.jpg) no-repeat center;
-    background-size: cover;
-    background-position: 49% 75%;
+    background: linear-gradient(#00ADB5 ,#00595e );
+  
     height: 100%;
     
 }
 .divBodySignin-Left{
     
     width: 30%;
-    background: url(/img/SigninImage.jpg) no-repeat center;
-    background-size: cover;
-    background-position: 2% 22% 30%;
+    background: linear-gradient(#00ADB5 ,#00595e );
     height: 100%;
     
     

@@ -1,3 +1,4 @@
+/* BLOQUE CONTAINER*/
 .AllItemsContainer{
 display: flex;
 width: 95%;
@@ -107,7 +108,7 @@ height: 65%;
 }
 
 
-
+/* BLOQUE CONTAINER carrito*/
 .compraYcarrito{
    
 

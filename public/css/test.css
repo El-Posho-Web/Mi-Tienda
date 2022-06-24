@@ -3,6 +3,9 @@ body{
     background-color: #EEEEEE !important;
     
 }
+
+/*BLOQUE HEADER*/
+
 .aboveHeader{
     background-color: #252A34;
     height: 3.5vh;
@@ -59,6 +62,9 @@ body{
     width: 95%;
     
 }
+
+/*BLOQUE CONTENEDOR DEBAJO DEL HEADER*/
+
 .underHeader{
     display: flex;
     background-color: #fff;

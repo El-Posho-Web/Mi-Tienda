@@ -1,6 +1,8 @@
 body{
     background-color: #eee !important;
 }
+
+/* BLOQUE CONTAINER*/
 .generalCont{
     display: flex;
     width: 95%;
@@ -25,6 +27,7 @@ body{
     border-bottom: 1px solid rgb(255, 221, 221);}
 
 
+    /* BLOQUE ITEM INDIVIDUAL */
 .itemNav{
     
     font-size: 1.3rem;
@@ -155,6 +158,8 @@ font-weight: bold;
     background-color: transparent;
 }
 
+
+/* BLOQUE SUMARIO*/
 .sumario{
     display: flex;
     flex-direction: column;
