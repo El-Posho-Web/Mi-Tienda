@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Http\Request;
 use App\Models\Categoria;
+use Illuminate\Support\Facades\Log;
 
 class SesionController extends Controller
 {
@@ -52,7 +53,7 @@ class SesionController extends Controller
         }
 
         session()->regenerate();
-        
+        Log::channel('inicio_sesion')->info('Usuario ' . auth()->user()->email . '(id:' .  auth()->user()->id_usuario . ', ip: '. request()->ip() .') inicio sesion correctamente');
         return redirect('mi-tienda')->with('correcto', 'Ingresaste Correctamente.');
         
     }
